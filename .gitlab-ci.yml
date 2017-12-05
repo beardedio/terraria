@@ -9,76 +9,23 @@ stages:
 
 variables:
   CI_REGISTRY: "docker.io"
-  CI_REGISTRY_IMAGE: "docker.io/dockerdevs/terraria"
+  CI_REGISTRY_IMAGE: "dockerdevs/terraria"
   CI_REGISTRY_USER: "set-as-secret-variable"
   CI_REGISTRY_PASSWORD: "set-as-secret-variable"
 
-build-tshock:
+build:
   stage: build
   image: docker:stable
   only:
     - master
+    - schedules
   variables:
     FOLDER: "tshock"
   before_script:
     - apk add --no-cache curl
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - cd "$FOLDER"
-    - export VERSION=`cat latest | xargs` && export DOCKER_TAG="$FOLDER-$VERSION" && echo "Building image $DOCKER_TAG"
-    - export STATUS=`curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/dockerdevs/terraria/tags/$DOCKER_TAG/`
-    - if [ $STATUS == 200 ]; then echo "Tag already exists, skipping build..."; exit 0; fi
-    - cd $VERSION
-    - docker build --pull --tag "$CI_REGISTRY_IMAGE" .
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$FOLDER-latest"
-    - docker push "$CI_REGISTRY_IMAGE:$FOLDER-latest"
-    - docker push "$CI_REGISTRY_IMAGE:latest"
-
-build-tshock-dev:
-  stage: build
-  image: docker:stable
-  only:
-    - master
-  variables:
-    FOLDER: "tshock-dev"
-  before_script:
-    - apk add --no-cache curl
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  script:
-    - cd "$FOLDER"
-    - export VERSION=`cat latest | xargs` && export DOCKER_TAG="$FOLDER-$VERSION" && echo "Building image $DOCKER_TAG"
-    - export STATUS=`curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/dockerdevs/terraria/tags/$DOCKER_TAG/`
-    - if [ $STATUS == 200 ]; then echo "Tag already exists, skipping build..."; exit 0; fi
-    - cd $VERSION
-    - docker build --pull --tag "$CI_REGISTRY_IMAGE" .
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$FOLDER-latest"
-    - docker push "$CI_REGISTRY_IMAGE:$FOLDER-latest"
-
-build-vanilla:
-  stage: build
-  image: docker:stable
-  only:
-    - master
-  variables:
-    FOLDER: "vanilla"
-  before_script:
-    - apk add --no-cache curl
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  script:
-    - cd "$FOLDER"
-    - export VERSION=`cat latest | xargs` && export DOCKER_TAG="$FOLDER-$VERSION" && echo "Building image $DOCKER_TAG"
-    - export STATUS=`curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/dockerdevs/terraria/tags/$DOCKER_TAG/`
-    - if [ $STATUS == 200 ]; then echo "Tag already exists, skipping build..."; exit 0; fi
-    - cd $VERSION
-    - docker build --pull --tag "$CI_REGISTRY_IMAGE" .
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$FOLDER-latest"
-    - docker push "$CI_REGISTRY_IMAGE:$FOLDER-latest"
+    - ./bin/build-all
 
 deploy:
   image: ilyasemenov/gitlab-ci-git-push

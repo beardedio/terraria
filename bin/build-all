@@ -1,0 +1,71 @@
+#!/bin/sh
+set -euo pipefail
+
+# Settings
+CI_REGISTRY_IMAGE="dockerdevs/terraria"
+LATEST_FOLDER="tshock"
+
+# Colorize me baby
+colorize() { CODE=$1; shift; echo -e '\033[0;'$CODE'm'$@'\033[0m'; }
+red() { echo -e $(colorize 31 $@); }
+green() { echo -e $(colorize 32 $@); }
+yellow() { echo -e $(colorize 33 $@); }
+
+# Change to script dir
+cd "${0%/*}"
+
+# Change to base dir
+cd ..
+
+# Get path
+BASEDIR=`pwd`
+
+for file in $BASEDIR/*/*/Dockerfile ; do
+    if [[ -f "$file" ]]; then
+        cd $(dirname $file)
+
+        VERSION=$(basename `pwd`)
+        FOLDER=$(basename $(realpath `pwd`/../))
+        DOCKER_TAG="$FOLDER-$VERSION"
+
+        if [ -f "../latest" ]; then
+            LATEST=$(cat ../latest | xargs)
+        fi
+
+        green "Building $DOCKER_TAG"
+
+        if [ "${@-}" != rebuild ]; then
+            export STATUS=`curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/`
+            if [ $STATUS == 200 ]; then
+                yellow "Tag already exists, skipping build..."
+                echo ""
+                continue
+            fi
+        fi
+
+        docker build --pull --tag "$CI_REGISTRY_IMAGE" .
+
+        yellow "Pushing tag $DOCKER_TAG"
+        docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
+        docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
+
+        # If $VERSION matches the latest file then push that tag
+        if [ $VERSION == $LATEST ]; then
+            yellow "Pushing extra tag $FOLDER-latest"
+            docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY_IMAGE:$FOLDER-latest"
+            docker push "$CI_REGISTRY_IMAGE:$FOLDER-latest"
+
+            # If $LATEST_FOLDER matches the build $FOLDER then push image as latest
+            if [ $FOLDER == $LATEST_FOLDER ]; then
+                yellow "Pushing extra tag latest"
+                docker push "$CI_REGISTRY_IMAGE:latest"
+            fi
+        fi
+
+        green "$DOCKER_TAG Done"
+        echo ""
+    fi
+done
+
+green "Done building images"
+echo ""
