@@ -9,7 +9,7 @@ stages:
 
 variables:
   CI_REGISTRY: "docker.io"
-  CI_REGISTRY_IMAGE: "dockerdevs/terraria"
+  CI_REGISTRY_IMAGE: "beardedio/terraria"
   CI_REGISTRY_USER: "set-as-secret-variable"
   CI_REGISTRY_PASSWORD: "set-as-secret-variable"
 
@@ -34,4 +34,4 @@ deploy:
   stage: deploy
   only:
     - master
-  script: git-push git@github.com:dockerdevs/terraria.git refs/heads/master
+  script: git-push git@github.com:beardedio/terraria.git refs/heads/master

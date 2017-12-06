@@ -1,6 +1,6 @@
 # Terraria
 
-This project is used to build docker images for Terraria Servers both [TShock](https://tshock.co) and [Vanilla](https://terraria.gamepedia.com/Server)
+Docker images to run a Terraria Server. Images with [TShock Server](https://tshock.co) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available.
 
 ## Available Tags
 * latest - This is the same image as tshock-latest
