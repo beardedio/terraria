@@ -1,0 +1,142 @@
+#! /usr/bin/env python3
+import sys, os, glob, datetime, urllib;
+
+try:
+    import requests
+except ImportError:
+    sys.exit("requests module is missing... Please run `pip3 install requests`")
+
+#####
+# Configuration
+#####
+
+# Repository name
+repo = "Terraria"
+
+# Repository Slug
+slug = "beardedio/terraria"
+
+# The folder that is tagged "latest"
+latest_folder = "tshock"
+
+# Docker Hub Description, Limit 100 Characters
+short_description = "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."
+
+# Full description used in the readme.md
+full_description = "Docker images to run a Terraria Server. Images with [TShock Server](https://tshock.co) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available."
+
+
+
+# Change to script dir
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
+basedir = os.getcwd()
+
+#####
+#  Parse User and Pass from cli
+#####
+if len(sys.argv) < 3:
+    print("Please pass a user name and password to update docker hub, ie `"+sys.argv[0]+" myusername mypassword`")
+    sys.exit()
+
+if sys.argv[1]:
+    username = sys.argv[1]
+
+if sys.argv[2]:
+    password = sys.argv[2]
+
+#####
+## Build list of tags
+#####
+print("Generating tag list")
+tags = ""
+
+for filepath in sorted(glob.iglob(basedir+'/../*/*/Dockerfile'), reverse=True):
+    os.chdir(os.path.dirname(filepath))
+
+    version = os.path.basename(os.getcwd())
+    folder = os.path.basename(os.path.abspath(os.getcwd()+"/../"))
+    docker_tag = folder+"-"+version
+
+    latest = ""
+    latest_file = os.getcwd()+"/../latest"
+    if os.path.exists(latest_file):
+        with open(latest_file, 'r') as content_file:
+            latest = content_file.read().strip()
+
+    tags += "* "+docker_tag
+
+    if latest == version:
+        tags += ", "+folder+"-latest"
+
+        if latest_folder == folder:
+            tags += ", latest"
+
+    tags += " [("+folder+"/"+version+"/Dockerfile)](https://github.com/"+slug+"/blob/master/"+folder+"/"+version+"/Dockerfile)"
+    tags += "\n"
+tags = tags.strip()
+os.chdir(basedir)
+
+#####
+## Build full description
+#####
+print('Building full description')
+with open('../template/readme.template', 'r') as content_file:
+    readme_contents = content_file.read()
+
+readme_contents = readme_contents.replace("%%TAGS%%", tags)
+readme_contents = readme_contents.replace("%%YEAR%%", datetime.datetime.now().strftime("%Y"))
+
+#####
+## Update docker hub description
+#####
+with requests.Session() as s:
+    # Start sign in process for docker hub
+    r0 = s.get('https://hub.docker.com/sso/start/?next=https://hub.docker.com/')
+    r0.raise_for_status()
+
+    # Parse callback url
+    parsed = urllib.parse.urlparse(r0.url)
+    query = urllib.parse.parse_qs(parsed.query)
+    callbackurl = 'https://id.docker.com'+query['next'][0]
+
+    # Log in to oauth2 server
+    payload = {
+        'username': username,
+        'password': password
+    }
+    r1 = s.post('https://id.docker.com/api/id/v1/user/login', json=payload)
+    r1.raise_for_status()
+
+    # Login to app
+    r2 = s.get(callbackurl)
+    r2.raise_for_status()
+
+    # Get oauth2 token
+    token = s.cookies.get_dict()['token']
+
+    payload = {
+        'description': short_description,
+        'full_description': readme_contents
+    }
+    s.headers.update({'Authorization': 'Bearer '+token})
+    r9 = s.patch('https://hub.docker.com/v2/repositories/'+slug+'/', json=payload)
+    r9.raise_for_status()
+
+    if r9.status_code == 200:
+        print("Updated docker hub")
+
+#####
+## Update readme.md
+#####
+print('Updating Readme.md')
+header = "# "+repo+"\n\n"
+header += full_description+"\n\n"
+readme = header+readme_contents
+
+with open('../readme.md','w') as f:
+    f.write(readme)
+
+print('Done')

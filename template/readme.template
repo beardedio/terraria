@@ -1,0 +1,25 @@
+### Supported tags and respective `Dockerfile` links
+
+%%TAGS%%
+
+### Quick reference
+
+### What is Terraria Server?
+A Terraria server provides a platform for players to connect over the internet or other network for multiplayer games.
+
+### beardedio/terraria:tshock-<version>
+
+### beardedio/terraria:tshock-dev-<version>
+
+### beardedio/terraria:vanilla-<version>
+
+#### *Notes*
+* Please check the [tshock instructions](https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/Configuration+File+Docs) for properly installing and configuring your terraria server.
+* Any [additional command-line instructions](https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/Command+Line+Parameters) can be added to the end of either method for launching a server.  Docker maps the $HOME/terraria/world linux-host folder to the /tshock/world container-folder.
+* More information about running a server is available in the [wiki](https://terraria.gamepedia.com/Server).
+* This repo is a fork of [ryansheehan/terraria](https://github.com/ryansheehan/terraria)
+
+#### License
+
+The MIT License (MIT)
+Copyright (c) %%YEAR%% Brandon Skrtich, Ryan Sheehan
