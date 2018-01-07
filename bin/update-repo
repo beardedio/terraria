@@ -1,0 +1,211 @@
+#! /usr/bin/env python3
+import os, sys, urllib.request, json, glob, shutil;
+
+#####
+# Configuration
+#####
+limit = 10
+
+
+
+# Change to script dir
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
+# Change to root of repo
+os.chdir('..')
+
+# Store repo dir
+repodir = os.getcwd()
+
+
+
+print("\n")
+print('#####')
+print('# Get TShock Versions')
+print('#####')
+
+# Config
+template_folder = repodir+'/template/tshock'
+version_folder = repodir+'/tshock'
+version_list = []
+
+# Load versions
+url = "https://api.github.com/repos/Pryaxis/TShock/releases"
+req = urllib.request.urlopen(url).read()
+data = json.loads(req.decode('utf-8'))
+
+count = 0
+for item in data:
+    if count == limit:
+        break
+
+    if item['prerelease'] or item['draft']:
+        continue
+
+    count += 1
+    version_list.append(item['tag_name'].strip('v'))
+
+# Delete existing version folders
+print('Deleting versions from: '+version_folder)
+paths = glob.glob(version_folder+'/*/')
+for path in paths:
+    shutil.rmtree(path, False)
+
+# Create new version folders
+print('Creating new versions for: '+version_folder)
+for version in version_list:
+    print(version)
+
+    # Setup
+    vfolder = version_folder+'/'+version
+    vnumber = version
+
+    # Copy template to new folder
+    shutil.copytree(template_folder, vfolder)
+
+    # Filter replace codes
+    with open(vfolder+'/dockerfile.template', 'r') as f:
+        file_contents = f.read()
+
+    file_contents = file_contents.replace('%%VERSION%%', vnumber)
+
+    with open(vfolder+'/dockerfile','w') as f:
+        f.write(file_contents)
+
+    # Delete dockerfile.template
+    os.remove(vfolder+'/dockerfile.template')
+
+# Update latest file
+with open(version_folder+'/latest','w') as f:
+    latest = version_list[0]
+    print("Updating latest to: "+latest)
+    f.write(latest)
+
+
+
+print("\n")
+print('#####')
+print('# Get TShock-dev Versions')
+print('#####')
+
+# Config
+template_folder = repodir+'/template/tshock-dev'
+version_folder = repodir+'/tshock-dev'
+version_list = []
+
+# Get TShock-dev versions
+count = 0
+minbuild = ""
+while count < limit:
+    url = "https://api.travis-ci.org/repos/Pryaxis/TShock/builds?event_type=push"
+
+    if minbuild:
+        url += "&after_number="+str(int(minbuild)-25)
+
+    req = urllib.request.urlopen(url).read()
+    data = json.loads(req.decode('utf-8'))
+
+    for item in data:
+        if count == limit:
+            break
+
+        minbuild = item['number']
+
+        if item['branch'] != "general-devel" or item['state'] != "finished":
+            continue
+
+        count += 1
+        version_list.append(item['number'])
+
+# Delete existing version folders
+print('Deleting versions from: '+version_folder)
+paths = glob.glob(version_folder+'/*/')
+for path in paths:
+    shutil.rmtree(path, False)
+
+# Create new version folders
+print('Creating new versions for: '+version_folder)
+for version in version_list:
+    print(version)
+
+    # Setup
+    vfolder = version_folder+'/'+version
+    vnumber = version
+
+    # Copy template to new folder
+    shutil.copytree(template_folder, vfolder)
+
+    # Filter replace codes
+    with open(vfolder+'/dockerfile.template', 'r') as f:
+        file_contents = f.read()
+
+    file_contents = file_contents.replace('%%VERSION%%', vnumber)
+
+    with open(vfolder+'/dockerfile','w') as f:
+        f.write(file_contents)
+
+    # Delete dockerfile.template
+    os.remove(vfolder+'/dockerfile.template')
+
+# Update latest file
+with open(version_folder+'/latest','w') as f:
+    latest = version_list[0]
+    print("Updating latest to: "+latest)
+    f.write(latest)
+
+
+
+print("\n")
+print('#####')
+print('# Get Vanilla Versions')
+print('#####')
+
+# Config
+template_folder = repodir+'/template/vanilla'
+version_folder = repodir+'/vanilla'
+version_list = []
+
+# Get vanilla versions
+with open(version_folder+'/versions') as fin:
+    for line in fin:
+        if len(line.strip()) > 0:
+            version_list.append(line.strip())
+version_list.sort(reverse=True)
+
+# Delete existing version folders
+print('Deleting versions from: '+version_folder)
+paths = glob.glob(version_folder+'/*/')
+for path in paths:
+    shutil.rmtree(path, False)
+
+# Create new version folders
+print('Creating new versions for: '+version_folder)
+for version in version_list:
+    print(version)
+
+    # Setup
+    vfolder = version_folder+'/'+version
+    vnumber = version.replace('.', '')
+
+    # Copy template to new folder
+    shutil.copytree(template_folder, vfolder)
+
+    # Filter replace codes
+    with open(vfolder+'/dockerfile.template', 'r') as f:
+        file_contents = f.read()
+
+    file_contents = file_contents.replace('%%VERSION%%', vnumber)
+
+    with open(vfolder+'/dockerfile','w') as f:
+        f.write(file_contents)
+
+    # Delete dockerfile.template
+    os.remove(vfolder+'/dockerfile.template')
+
+# Update latest file
+with open(version_folder+'/latest','w') as f:
+    latest = version_list[0]
+    print("Updating latest to: "+latest)
+    f.write(latest)

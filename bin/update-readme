@@ -6,6 +6,8 @@ try:
 except ImportError:
     sys.exit("requests module is missing... Please run `pip3 install requests`")
 
+
+
 #####
 # Configuration
 #####
@@ -32,7 +34,13 @@ abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
 
-basedir = os.getcwd()
+# Change to root of repo
+os.chdir('..')
+
+# Store repo dir
+repodir = os.getcwd()
+
+
 
 #####
 #  Parse User and Pass from cli
@@ -47,13 +55,15 @@ if sys.argv[1]:
 if sys.argv[2]:
     password = sys.argv[2]
 
+
+
 #####
 ## Build list of tags
 #####
 print("Generating tag list")
 tags = ""
 
-for filepath in sorted(glob.iglob(basedir+'/../*/*/Dockerfile'), reverse=True):
+for filepath in sorted(glob.iglob(repodir+'/*/*/Dockerfile'), reverse=True):
     os.chdir(os.path.dirname(filepath))
 
     version = os.path.basename(os.getcwd())
@@ -77,14 +87,20 @@ for filepath in sorted(glob.iglob(basedir+'/../*/*/Dockerfile'), reverse=True):
     tags += " [("+folder+"/"+version+"/Dockerfile)](https://github.com/"+slug+"/blob/master/"+folder+"/"+version+"/Dockerfile)"
     tags += "\n"
 tags = tags.strip()
-os.chdir(basedir)
+
+print(tags+"\n")
+
+# Return to repo dir
+os.chdir(repodir)
+
+
 
 #####
 ## Build full description
 #####
 print('Building full description')
-with open('../template/readme.template', 'r') as content_file:
-    readme_contents = content_file.read()
+with open('template/readme.template', 'r') as f:
+    readme_contents = f.read()
 
 readme_contents = readme_contents.replace("%%TAGS%%", tags)
 readme_contents = readme_contents.replace("%%YEAR%%", datetime.datetime.now().strftime("%Y"))
@@ -128,6 +144,8 @@ with requests.Session() as s:
     if r9.status_code == 200:
         print("Updated docker hub")
 
+
+
 #####
 ## Update readme.md
 #####
@@ -136,7 +154,7 @@ header = "# "+repo+"\n\n"
 header += full_description+"\n\n"
 readme = header+readme_contents
 
-with open('../readme.md','w') as f:
+with open('readme.md','w') as f:
     f.write(readme)
 
 print('Done')
