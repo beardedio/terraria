@@ -19,13 +19,11 @@ build:
   only:
     - master
     - schedules
-  variables:
-    FOLDER: "tshock"
   before_script:
     - apk add --no-cache curl bash
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - ./bin/build-all
+    - ./bin/build-all push
 
 deploy:
   image: ilyasemenov/gitlab-ci-git-push

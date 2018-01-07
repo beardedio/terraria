@@ -66,16 +66,16 @@ for version in version_list:
     shutil.copytree(template_folder, vfolder)
 
     # Filter replace codes
-    with open(vfolder+'/dockerfile.template', 'r') as f:
+    with open(vfolder+'/Dockerfile.template', 'r') as f:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
 
-    with open(vfolder+'/dockerfile','w') as f:
+    with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
 
     # Delete dockerfile.template
-    os.remove(vfolder+'/dockerfile.template')
+    os.remove(vfolder+'/Dockerfile.template')
 
 # Update latest file
 with open(version_folder+'/latest','w') as f:
@@ -99,10 +99,10 @@ version_list = []
 count = 0
 minbuild = ""
 while count < limit:
-    url = "https://api.travis-ci.org/repos/Pryaxis/TShock/builds?event_type=push"
+    url = "https://api.travis-ci.org/repos/Pryaxis/TShock/builds"
 
     if minbuild:
-        url += "&after_number="+str(int(minbuild)-25)
+        url += "?after_number="+str(int(minbuild))
 
     req = urllib.request.urlopen(url).read()
     data = json.loads(req.decode('utf-8'))
@@ -113,7 +113,16 @@ while count < limit:
 
         minbuild = item['number']
 
-        if item['branch'] != "general-devel" or item['state'] != "finished":
+        if item['branch'] != "general-devel":
+            continue
+
+        if item['event_type'] not in ['push', 'api']:
+            continue
+
+        if item['state'] != "finished":
+            continue
+
+        if item['result'] != 0:
             continue
 
         count += 1
@@ -138,16 +147,16 @@ for version in version_list:
     shutil.copytree(template_folder, vfolder)
 
     # Filter replace codes
-    with open(vfolder+'/dockerfile.template', 'r') as f:
+    with open(vfolder+'/Dockerfile.template', 'r') as f:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
 
-    with open(vfolder+'/dockerfile','w') as f:
+    with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
 
     # Delete dockerfile.template
-    os.remove(vfolder+'/dockerfile.template')
+    os.remove(vfolder+'/Dockerfile.template')
 
 # Update latest file
 with open(version_folder+'/latest','w') as f:
@@ -193,16 +202,16 @@ for version in version_list:
     shutil.copytree(template_folder, vfolder)
 
     # Filter replace codes
-    with open(vfolder+'/dockerfile.template', 'r') as f:
+    with open(vfolder+'/Dockerfile.template', 'r') as f:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
 
-    with open(vfolder+'/dockerfile','w') as f:
+    with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
 
     # Delete dockerfile.template
-    os.remove(vfolder+'/dockerfile.template')
+    os.remove(vfolder+'/Dockerfile.template')
 
 # Update latest file
 with open(version_folder+'/latest','w') as f:
