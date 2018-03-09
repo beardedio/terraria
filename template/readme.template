@@ -18,13 +18,13 @@ docker create -it \
 the [TShock Forums](https://tshock.co/xf/index.php?forums/) or the [Terraria Forum](https://forums.terraria.org)
 
 - Where to file issues:
-https://github.com/docker-library/php/issues
+https://github.com/beardedio/terraria/issues
 
 - Maintained by:
 [Brandon Skrtich of Bearded.io](https://www.bearded.io/#footer)
 
 - Supported Docker versions:
-[the latest release](https://github.com/docker/docker-ce/releases/latest) (down to 1.6 on a best-effort basis)
+[the latest release](https://github.com/docker/docker-ce/releases/latest) (down to 1.8 on a best-effort basis)
 
 ### What is Terraria Server?
 A Terraria server provides a platform for players to connect over the internet or other network for multiplayer games of [Terraria](https://terraria.org/).
