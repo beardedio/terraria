@@ -6,55 +6,52 @@ CI_REGISTRY_IMAGE="beardedio/terraria"
 LATEST_FOLDER="tshock"
 
 # Colorize me baby
-green() { printf "\e[1;32m%b\e[0m\n" "$@"; }
-yellow() { printf "\e[1;33m%b\e[0m\n" "$@"; }
-red() { printf "\e[1;31m%b\e[0m\n" "$@"; }
-
-# Change to script dir
-cd "${0%/*}"
+green() { printf '\e[1;32m%b\e[0m\n' "$@"; }
+yellow() { printf '\e[1;33m%b\e[0m\n' "$@"; }
+red() { printf '\e[1;31m%b\e[0m\n' "$@"; }
 
 # Change to base dir
-cd ..
+cd "${0%/*}/.."
 
 # Get path
-BASEDIR=`pwd`
+BASEDIR=$(pwd)
 
 for file in $BASEDIR/*/*/Dockerfile ; do
     if [[ -f "$file" ]]; then
-        cd $(dirname $file)
+        cd "$(dirname "$file")"
 
-        VERSION=$(basename `pwd`)
-        FOLDER=$(basename $(realpath `pwd`/../))
+        VERSION=$(basename "$(pwd)")
+        FOLDER=$(basename "$(realpath "$(pwd)/../")")
         DOCKER_TAG="$FOLDER-$VERSION"
 
         if [ -f "../latest" ]; then
-            LATEST=$(cat ../latest | xargs)
+            LATEST=$(< ../latest xargs)
         fi
 
         green "Building $DOCKER_TAG"
 
-        if [[ "${@-}" != *rebuild* ]]; then
-            export STATUS=`curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/`
-            if [ $STATUS == 200 ]; then
-                yellow "Tag already exists, skipping build...\n"
+        if [[ "${*-}" != *rebuild* ]]; then
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/")
+            if [ "$STATUS" == 200 ]; then
+                yellow 'Tag already exists, skipping build...\n'
                 continue
             fi
         fi
 
         docker build --pull --tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" .
 
-        if [[ "${@-}" == *push* ]]; then
+        if [[ "${*-}" == *push* ]]; then
             yellow "Pushing tag $DOCKER_TAG"
             docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
 
             # If $VERSION matches the latest file then push that tag
-            if [ $VERSION == $LATEST ]; then
+            if [ "$VERSION" == "$LATEST" ]; then
                 yellow "Pushing extra tag $FOLDER-latest"
                 docker tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" "$CI_REGISTRY_IMAGE:$FOLDER-latest"
                 docker push "$CI_REGISTRY_IMAGE:$FOLDER-latest"
 
                 # If $LATEST_FOLDER matches the build $FOLDER then push image as latest
-                if [ $FOLDER == $LATEST_FOLDER ]; then
+                if [ "$FOLDER" == "$LATEST_FOLDER" ]; then
                     yellow "Pushing extra tag latest"
                     docker tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" "$CI_REGISTRY_IMAGE:latest"
                     docker push "$CI_REGISTRY_IMAGE:latest"
@@ -62,8 +59,8 @@ for file in $BASEDIR/*/*/Dockerfile ; do
             fi
         fi
 
-        green "$DOCKER_TAG Done\n"
+        green "$DOCKER_TAG Done"'\n'
     fi
 done
 
-green "Done building images\n"
+green 'Done building images\n'

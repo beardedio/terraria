@@ -23,7 +23,7 @@ build:
     - apk add --no-cache curl bash
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - ./bin/build-all push
+    - ./bin/build-all rebuild push
 
 deploy:
   image: ilyasemenov/gitlab-ci-git-push

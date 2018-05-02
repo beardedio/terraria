@@ -3,7 +3,7 @@ FROM mono:4
 # Update and install a zip utility
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y vim wget zip && \
+    apt-get install -y vim zip && \
     apt-get clean
 
 # Create symbolic link to ServerLog.txt
@@ -19,8 +19,8 @@ RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && ec
 ENV TSHOCK_VERSION=4.3.18
 
 RUN cd /tmp && \
-    wget -nv https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip && \
-    unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
+    curl -sL https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip --output tshock_release.zip && \
+    unzip tshock_release.zip -d /tshock && \
     rm -R /tmp/* && \
     chmod +x /tshock/TerrariaServer.exe
 

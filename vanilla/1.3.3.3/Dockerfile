@@ -3,7 +3,7 @@ FROM mono:4
 # Update and install a zip utility
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y vim wget zip && \
+    apt-get install -y vim zip && \
     apt-get clean
 
 # fix for favorites.json error
@@ -14,8 +14,8 @@ ENV VANILLA_VERSION=1333
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
-    wget -nv http://terraria.org/server/terraria-server-$VANILLA_VERSION.zip && \
-    unzip -q terraria-server-$VANILLA_VERSION.zip && \
+    curl -sL http://terraria.org/server/terraria-server-$VANILLA_VERSION.zip --output terraria-server.zip && \
+    unzip -q terraria-server.zip && \
     mv */Linux /vanilla && \
     mv */Windows/serverconfig.txt /vanilla/serverconfig-default.txt && \
     rm -R /tmp/* && \
