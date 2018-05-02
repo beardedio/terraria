@@ -30,16 +30,16 @@ docker create -it \
 * tshock-4.3.17 [(tshock/4.3.17/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock/4.3.17/Dockerfile)
 * tshock-4.3.16 [(tshock/4.3.16/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock/4.3.16/Dockerfile)
 * tshock-4.3.15 [(tshock/4.3.15/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock/4.3.15/Dockerfile)
-* tshock-dev-2203, tshock-dev-latest [(tshock-dev/2203/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2203/Dockerfile)
+* tshock-dev-2226, tshock-dev-latest [(tshock-dev/2226/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2226/Dockerfile)
+* tshock-dev-2220 [(tshock-dev/2220/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2220/Dockerfile)
+* tshock-dev-2216 [(tshock-dev/2216/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2216/Dockerfile)
+* tshock-dev-2213 [(tshock-dev/2213/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2213/Dockerfile)
+* tshock-dev-2210 [(tshock-dev/2210/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2210/Dockerfile)
+* tshock-dev-2205 [(tshock-dev/2205/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2205/Dockerfile)
+* tshock-dev-2203 [(tshock-dev/2203/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2203/Dockerfile)
 * tshock-dev-2198 [(tshock-dev/2198/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2198/Dockerfile)
 * tshock-dev-2196 [(tshock-dev/2196/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2196/Dockerfile)
 * tshock-dev-2191 [(tshock-dev/2191/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2191/Dockerfile)
-* tshock-dev-2186 [(tshock-dev/2186/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2186/Dockerfile)
-* tshock-dev-2181 [(tshock-dev/2181/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2181/Dockerfile)
-* tshock-dev-2155 [(tshock-dev/2155/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2155/Dockerfile)
-* tshock-dev-2152 [(tshock-dev/2152/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2152/Dockerfile)
-* tshock-dev-2111 [(tshock-dev/2111/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2111/Dockerfile)
-* tshock-dev-2108 [(tshock-dev/2108/Dockerfile)](https://github.com/beardedio/terraria/blob/master/tshock-dev/2108/Dockerfile)
 
 ### Quick reference
 - Where to get help:
