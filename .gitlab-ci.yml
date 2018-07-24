@@ -26,7 +26,7 @@ build:
     - ./bin/build-all rebuild push
 
 deploy:
-  image: ilyasemenov/gitlab-ci-git-push
+  image: beardedio/git-tools
   variables:
     SSH_PRIVATE_KEY: "set-as-secret-variable"
   stage: deploy
