@@ -111,4 +111,4 @@ Yes, if you want manage you own plugins for tshock containers, you can add a vol
 #### License
 
 The MIT License (MIT)
-Copyright (c) 2018 Brandon Skrtich
+Copyright (c) 2019 Brandon Skrtich
