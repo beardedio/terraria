@@ -1,4 +1,4 @@
-FROM mono:4
+FROM mono
 
 # Update and install a zip utility
 RUN apt-get update && \
