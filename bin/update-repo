@@ -177,7 +177,7 @@ version_folder = repodir+'/containers/vanilla'
 version_list = []
 
 # Get vanilla versions
-with open(template_folder+'/vanilla-versions') as fin:
+with open(repodir+'/template/vanilla-versions') as fin:
     for line in fin:
         if len(line.strip()) > 0:
             version_list.append(line.strip())

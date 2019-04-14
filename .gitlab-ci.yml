@@ -9,7 +9,7 @@ stages:
 
 variables:
   CI_REGISTRY: "docker.io"
-  CI_REGISTRY_IMAGE: "beardedio/terraria"
+  CI_REGISTRY_IMAGE: "beardedio/dcon-terraria"
   CI_REGISTRY_USER: "set-as-secret-variable"
   CI_REGISTRY_PASSWORD: "set-as-secret-variable"
 
