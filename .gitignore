@@ -1,20 +1,25 @@
 # OS Generated Files
+*~
+._*
 .DS_Store
 .DS_Store?
-._*
 .Spotlight-V100
 .Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
 Desktop.ini
+ehthumbs.db
+Icon?
+Thumbs.db
 
 # Editor Files
-.idea
-.vscode
 .fuse_hidden*
-*.sublime*
-*.codekit
+.idea
+.vagrant
+.vscode
+.kdev4/
+*.kdev4
 *.bak
+*.codekit
 *.iml
+*.sublime*
 *.swp
+*.vi

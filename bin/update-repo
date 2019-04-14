@@ -28,7 +28,7 @@ print('#####')
 
 # Config
 template_folder = repodir+'/template/tshock'
-version_folder = repodir+'/tshock'
+version_folder = repodir+'/containers/tshock'
 version_list = []
 
 # Load versions
@@ -92,7 +92,7 @@ print('#####')
 
 # Config
 template_folder = repodir+'/template/tshock-dev'
-version_folder = repodir+'/tshock-dev'
+version_folder = repodir+'/containers/tshock-dev'
 version_list = []
 
 # Get TShock-dev versions
@@ -173,11 +173,11 @@ print('#####')
 
 # Config
 template_folder = repodir+'/template/vanilla'
-version_folder = repodir+'/vanilla'
+version_folder = repodir+'/containers/vanilla'
 version_list = []
 
 # Get vanilla versions
-with open(version_folder+'/versions') as fin:
+with open(template_folder+'/vanilla-versions') as fin:
     for line in fin:
         if len(line.strip()) > 0:
             version_list.append(line.strip())
