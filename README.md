@@ -30,7 +30,8 @@ docker create -it \
 * tshock-4.3.18 [(containers/tshock/4.3.18/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock/4.3.18/Dockerfile)
 * tshock-4.3.17 [(containers/tshock/4.3.17/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock/4.3.17/Dockerfile)
 * tshock-4.3.16 [(containers/tshock/4.3.16/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock/4.3.16/Dockerfile)
-* tshock-dev-2382, tshock-dev-latest [(containers/tshock-dev/2382/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2382/Dockerfile)
+* tshock-dev-2384, tshock-dev-latest [(containers/tshock-dev/2384/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2384/Dockerfile)
+* tshock-dev-2382 [(containers/tshock-dev/2382/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2382/Dockerfile)
 * tshock-dev-2377 [(containers/tshock-dev/2377/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2377/Dockerfile)
 * tshock-dev-2370 [(containers/tshock-dev/2370/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2370/Dockerfile)
 * tshock-dev-2366 [(containers/tshock-dev/2366/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2366/Dockerfile)
@@ -39,7 +40,6 @@ docker create -it \
 * tshock-dev-2339 [(containers/tshock-dev/2339/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2339/Dockerfile)
 * tshock-dev-2336 [(containers/tshock-dev/2336/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2336/Dockerfile)
 * tshock-dev-2329 [(containers/tshock-dev/2329/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2329/Dockerfile)
-* tshock-dev-2301 [(containers/tshock-dev/2301/Dockerfile)](https://github.com/beardedio/dcon-terraria/blob/master/containers/tshock-dev/2301/Dockerfile)
 
 ### Quick reference
 - Where to get help:
