@@ -1,6 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
+#####
+#
+# This script builds all the docker containers in the repo
+#
+#####
+
 # Settings
 CI_REGISTRY_IMAGE="beardedio/dcon-terraria"
 LATEST_FOLDER="tshock"

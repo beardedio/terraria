@@ -2,6 +2,12 @@
 import os, sys, urllib.request, json, glob, shutil
 
 #####
+#
+# This script updates the container configs with new verions
+#
+#####
+
+#####
 # Configuration
 #####
 limit = 10

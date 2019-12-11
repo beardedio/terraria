@@ -1,6 +1,13 @@
 #! /usr/bin/env python3
 import sys, os, glob, datetime, urllib
 
+#####
+#
+# This script updates the README with the container tags
+#
+#####
+
+
 try:
     import requests
 except ImportError:
