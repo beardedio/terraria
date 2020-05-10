@@ -20,10 +20,10 @@ except ImportError:
 #####
 
 # Repository name
-repo = "dcon-terraria"
+repo = "terraria"
 
 # Repository Slug
-slug = "beardedio/dcon-terraria"
+slug = "beardedio/terraria"
 
 # The folder that is tagged "latest"
 latest_folder = "tshock"
@@ -137,15 +137,17 @@ with requests.Session() as s:
     r2 = s.get(callbackurl)
     r2.raise_for_status()
 
-    # Get oauth2 token
-    token = s.cookies.get_dict()['token']
+    # Get csrf token
+    csrftoken = s.cookies.get_dict()['csrftoken']
 
     payload = {
+        'registry': 'registry-1.docker.io',
         'description': short_description,
         'full_description': readme_contents
     }
-    s.headers.update({'Authorization': 'Bearer '+token})
-    r9 = s.patch('https://cloud.docker.com/v2/repositories/'+slug+'/', json=payload)
+
+    s.headers.update({'X-CSRFToken': csrftoken})
+    r9 = s.patch('https://hub.docker.com/v2/repositories/'+slug+'/', json=payload)
     r9.raise_for_status()
 
     if r9.status_code == 200:

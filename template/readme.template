@@ -1,4 +1,4 @@
-[![](https://images.microbadger.com/badges/image/beardedio/dcon-terraria:latest.svg)](https://microbadger.com/images/beardedio/dcon-terraria:latest)[![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/dcon-terraria.svg)]()[![Docker Stars](https://img.shields.io/docker/stars/beardedio/dcon-terraria.svg)]()
+[![](https://images.microbadger.com/badges/image/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest)[![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]()[![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
 
 ### Usage
 ```
@@ -7,7 +7,7 @@ docker create -it \
   -v <path to data>:/config \
   -e world=<world_file_name> \
   -p 7777:7777 \
-  beardedio/dcon-terraria
+  beardedio/terraria
 ```
 
 ### Supported tags and respective `Dockerfile` links
@@ -18,7 +18,7 @@ docker create -it \
 the [TShock Forums](https://tshock.co/xf/index.php?forums/) or the [Terraria Forum](https://forums.terraria.org)
 
 - Where to file issues:
-https://github.com/beardedio/dcon-terraria/issues
+https://github.com/beardedio/terraria/issues
 
 - Maintained by:
 [Brandon Skrtich of Bearded.io](https://www.bearded.io/#footer)
@@ -37,7 +37,7 @@ To run with out user intervention Terraria Server needs to be configure to use a
 sudo docker run -it -p 7777:7777 \
     -v $HOME/terraria/config:/config \
     --name=terraria \
-    beardedio/dcon-terraria
+    beardedio/terraria
 ```
 You can then follow the prompts to create a new world.
 
@@ -50,7 +50,7 @@ sudo docker run -dit \
   -v $HOME/terraria/config:/config \
   -e world=<world_file_name> \
   -p 7777:7777 \
-  beardedio/dcon-terraria
+  beardedio/terraria
 ```
 
 If you get an error from docker saying the container name already exists, it means you need to remove your old docker container process.
