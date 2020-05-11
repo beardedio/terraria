@@ -2,7 +2,8 @@
 
 Docker images to run a Terraria Server. Images with [TShock Server](https://tshock.co) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available.
 
-[![](https://images.microbadger.com/badges/image/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest)[![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]()[![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
+
+[![](https://images.microbadger.com/badges/image/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest) [![](https://images.microbadger.com/badges/version/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest) [![](https://images.microbadger.com/badges/commit/beardedio/terraria.svg)](https://microbadger.com/images/beardedio/terraria "Get your own commit badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
 
 ### Usage
 ```

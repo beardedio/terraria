@@ -44,7 +44,7 @@ for file in $BASEDIR/containers/*/*/Dockerfile ; do
             fi
         fi
 
-        docker build --pull --tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" .
+        docker build --build-arg VCS_REF=`git rev-parse --short HEAD` --pull --tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" .
 
         if [[ "${*-}" == *push* ]]; then
             yellow "Pushing tag $DOCKER_TAG"
