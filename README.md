@@ -1,9 +1,9 @@
 # terraria
 
-Docker images to run a Terraria Server. Images with [TShock Server](https://tshock.co) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available.
+Docker images to run a Terraria Server. Images with [TShock Server](https://github.com/Pryaxis/TShock) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available.
 
 
-[![](https://images.microbadger.com/badges/image/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest) [![](https://images.microbadger.com/badges/version/beardedio/terraria:latest.svg)](https://microbadger.com/images/beardedio/terraria:latest) [![](https://images.microbadger.com/badges/commit/beardedio/terraria.svg)](https://microbadger.com/images/beardedio/terraria "Get your own commit badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardedio/terraria/latest) ![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/beardedio/terraria/latest) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
 
 ### Usage
 ```
@@ -14,6 +14,8 @@ docker create -it \
   -p 7777:7777 \
   beardedio/terraria
 ```
+
+Docker Images are avaiable on [Docker Hub](https://hub.docker.com/repository/docker/beardedio/terraria)
 
 ### Supported tags and respective `Dockerfile` links
 * vanilla-1.3.5.3, vanilla-latest [(containers/vanilla/1.3.5.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.3.5.3/Dockerfile)
@@ -31,20 +33,20 @@ docker create -it \
 * tshock-4.3.18 [(containers/tshock/4.3.18/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.18/Dockerfile)
 * tshock-4.3.17 [(containers/tshock/4.3.17/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.17/Dockerfile)
 * tshock-4.3.16 [(containers/tshock/4.3.16/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.16/Dockerfile)
-* tshock-dev-2398, tshock-dev-latest [(containers/tshock-dev/2398/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2398/Dockerfile)
-* tshock-dev-2393 [(containers/tshock-dev/2393/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2393/Dockerfile)
-* tshock-dev-2388 [(containers/tshock-dev/2388/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2388/Dockerfile)
-* tshock-dev-2387 [(containers/tshock-dev/2387/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2387/Dockerfile)
-* tshock-dev-2386 [(containers/tshock-dev/2386/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2386/Dockerfile)
-* tshock-dev-2385 [(containers/tshock-dev/2385/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2385/Dockerfile)
-* tshock-dev-2384 [(containers/tshock-dev/2384/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2384/Dockerfile)
-* tshock-dev-2382 [(containers/tshock-dev/2382/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2382/Dockerfile)
-* tshock-dev-2377 [(containers/tshock-dev/2377/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2377/Dockerfile)
-* tshock-dev-2370 [(containers/tshock-dev/2370/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2370/Dockerfile)
+* tshock-dev-949, tshock-dev-latest [(containers/tshock-dev/949/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/949/Dockerfile)
+* tshock-dev-934 [(containers/tshock-dev/934/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/934/Dockerfile)
+* tshock-dev-932 [(containers/tshock-dev/932/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/932/Dockerfile)
+* tshock-dev-930 [(containers/tshock-dev/930/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/930/Dockerfile)
+* tshock-dev-928 [(containers/tshock-dev/928/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/928/Dockerfile)
+* tshock-dev-926 [(containers/tshock-dev/926/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/926/Dockerfile)
+* tshock-dev-924 [(containers/tshock-dev/924/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/924/Dockerfile)
+* tshock-dev-917 [(containers/tshock-dev/917/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/917/Dockerfile)
+* tshock-dev-915 [(containers/tshock-dev/915/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/915/Dockerfile)
+* tshock-dev-913 [(containers/tshock-dev/913/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/913/Dockerfile)
 
 ### Quick reference
 - Where to get help:
-the [TShock Forums](https://tshock.co/xf/index.php?forums/) or the [Terraria Forum](https://forums.terraria.org)
+the [TShock Forums](https://github.com/Pryaxis/TShock/discussions) or the [Terraria Forum](https://forums.terraria.org/index.php?forums/)
 
 - Where to file issues:
 https://github.com/beardedio/terraria/issues
@@ -89,13 +91,13 @@ If you want to reattach to any running containers:
 `sudo docker attach terraria`
 Now you can execute any commands to the terraria server. Ctrl-p Ctrl-q will detatch you from the process.
 
-### beardedio/terraria:tshock-<version>
+### beardedio/terraria:tshock-latest
 TShock is a server modification for Terraria, written in C#, and based upon the Terraria Server API. It uses JSON for configuration management, and offers several features not present in the Terraria Server normally.
 
-### beardedio/terraria:tshock-dev-<version>
+### beardedio/terraria:tshock-dev-latest
 TShock dev are unreleased development builds of TShock. These builds may be unstable but they are updated faster then the released versions so they support new versions of Terraria faster.
 
-### beardedio/terraria:vanilla-<version>
+### beardedio/terraria:vanilla-latest
 Vanilla Terraria server is the server software provided by the developers of Terraria. This version has only basic features but it is updated along with the main game so it should always be up to date.
 
 If a docker image isn't available of the latest versions please [contact us](https://www.bearded.io/#footer) about the new release so we can update this repo.
@@ -103,10 +105,12 @@ If a docker image isn't available of the latest versions please [contact us](htt
 ### FAQ
 - Can I manage my own plugins for tshock?
 Yes, if you want manage you own plugins for tshock containers, you can add a volume mount to your docker command via `-v <path to plugins folder>:/tshock/ServerPlugins`. If you want to maintain any of the plugins that ship with tshock, you will need to copy them into the ServerPlugins folder. Mounting the plugins folder will override the plugins that ship with tshock.
+- I started the container but it keeps asking me to select a world, help?!
+You need to ether start the server with an existing world, in which case the server will start automaticly. Or you need to run the continer interactivly using the -it flag. This will allow you to create a new world.
 
 #### *Notes*
-* Please check the [TShock instructions](https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/Configuration+File+Docs) for properly installing and configuring your terraria server.
-* Any [additional command-line instructions](https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/Command+Line+Parameters) can be added to the end of either method for launching a server.  Docker maps the $HOME/terraria/world linux-host folder to the /tshock/world container-folder.
+* Please check the [TShock instructions](https://tshock.readme.io/docs/getting-started) for properly installing and configuring your terraria server.
+* Any [additional command-line instructions](https://tshock.readme.io/docs/command-line-parameters) can be added to the end of either method for launching a server.  Docker maps the $HOME/terraria/world linux-host folder to the /tshock/world container-folder.
 * More information about running a server is available in the [wiki](https://terraria.gamepedia.com/Server).
 
 #### License
