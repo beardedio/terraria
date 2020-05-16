@@ -36,7 +36,7 @@ for file in $BASEDIR/containers/*/*/Dockerfile ; do
 
         green "Building $DOCKER_TAG"
 
-        if [[ "${*-}" != *rebuild* ]]; then
+        if [[ "${*-}" != *force* ]]; then
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/")
             if [ "$STATUS" == 200 ]; then
                 yellow 'Tag already exists, skipping build...\n'
@@ -45,25 +45,6 @@ for file in $BASEDIR/containers/*/*/Dockerfile ; do
         fi
 
         docker build --build-arg VCS_REF=`git rev-parse --short HEAD` --pull --tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" .
-
-        if [[ "${*-}" == *push* ]]; then
-            yellow "Pushing tag $DOCKER_TAG"
-            docker push "$CI_REGISTRY_IMAGE:$DOCKER_TAG"
-
-            # If $VERSION matches the latest file then push that tag
-            if [ "$VERSION" == "$LATEST" ]; then
-                yellow "Pushing extra tag $FOLDER"
-                docker tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" "$CI_REGISTRY_IMAGE:$FOLDER"
-                docker push "$CI_REGISTRY_IMAGE:$FOLDER"
-
-                # If $LATEST_FOLDER matches the build $FOLDER then push image as latest
-                if [ "$FOLDER" == "$LATEST_FOLDER" ]; then
-                    yellow "Pushing extra tag latest"
-                    docker tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" "$CI_REGISTRY_IMAGE:latest"
-                    docker push "$CI_REGISTRY_IMAGE:latest"
-                fi
-            fi
-        fi
 
         green "$DOCKER_TAG Done"'\n'
     fi

@@ -1,0 +1,109 @@
+#! /usr/bin/env python3
+import sys, os, glob, datetime, urllib
+
+#####
+#
+# This script updates the README on Docker Hub
+#
+#####
+
+
+try:
+    import requests
+except ImportError:
+    sys.exit("requests module is missing... Please run `pip3 install requests`")
+
+
+
+#####
+# Configuration
+#####
+
+# Repository name
+repo = "terraria"
+
+# Repository Slug
+slug = "beardedio/terraria"
+
+# Docker Hub Description, Limit 100 Characters
+short_description = "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."
+
+
+# Change to script dir
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
+# Change to root of repo
+os.chdir('..')
+
+# Store repo dir
+repodir = os.getcwd()
+
+
+
+#####
+#  Parse User and Pass from cli
+#####
+if len(sys.argv) < 3:
+    print("Please pass a user name and password to update docker hub, ie `"+sys.argv[0]+" myusername mypassword`")
+    sys.exit()
+
+if sys.argv[1]:
+    username = sys.argv[1]
+
+if sys.argv[2]:
+    password = sys.argv[2]
+
+
+
+#####
+## Loading README.md
+#####
+print('Loading README.md')
+with open('README.md', 'r') as f:
+    readme_contents = f.read()
+
+#####
+## Update docker hub description
+#####
+with requests.Session() as s:
+    # Start sign in process for docker hub
+    r0 = s.get('https://hub.docker.com/sso/start/?next=https://hub.docker.com/')
+    r0.raise_for_status()
+
+    # Parse callback url
+    parsed = urllib.parse.urlparse(r0.url)
+    query = urllib.parse.parse_qs(parsed.query)
+    callbackurl = 'https://id.docker.com'+query['next'][0]
+
+    # Log in to oauth2 server
+    payload = {
+        'username': username,
+        'password': password
+    }
+    r1 = s.post('https://id.docker.com/api/id/v1/user/login', json=payload)
+    r1.raise_for_status()
+
+    # Login to app
+    r2 = s.get(callbackurl)
+    r2.raise_for_status()
+
+    # Get csrf token
+    csrftoken = s.cookies.get_dict()['csrftoken']
+
+    payload = {
+        'registry': 'registry-1.docker.io',
+        'description': short_description,
+        'full_description': readme_contents
+    }
+
+    s.headers.update({'X-CSRFToken': csrftoken})
+    r9 = s.patch('https://hub.docker.com/v2/repositories/'+slug+'/', json=payload)
+    r9.raise_for_status()
+
+    if r9.status_code == 200:
+        print("Updated docker hub")
+
+
+print('Done')
