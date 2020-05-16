@@ -9,7 +9,7 @@ set -euo pipefail
 
 # Settings
 CI_REGISTRY_IMAGE="beardedio/terraria"
-LATEST_FOLDER="tshock"
+LATEST_FOLDER="vanilla"
 
 # Colorize me baby
 green() { printf '\e[1;32m%b\e[0m\n' "$@"; }
