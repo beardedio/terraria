@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 # Download and install TShock
-ENV VANILLA_VERSION=1401
+ENV VANILLA_VERSION=1402
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
