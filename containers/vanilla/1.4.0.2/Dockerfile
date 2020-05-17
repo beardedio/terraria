@@ -14,7 +14,7 @@ ENV VANILLA_VERSION=1402
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
-    curl -sL http://terraria.org/server/terraria-server-$VANILLA_VERSION.zip --output terraria-server.zip && \
+    curl -sL https://terraria.org/system/dedicated_servers/archives/000/000/036/original/terraria-server-1402.zip?1589675482 --output terraria-server.zip && \
     unzip -q terraria-server.zip && \
     mv */Linux /vanilla && \
     mv */Windows/serverconfig.txt /vanilla/serverconfig-default.txt && \
