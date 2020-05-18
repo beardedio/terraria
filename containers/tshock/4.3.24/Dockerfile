@@ -3,7 +3,7 @@ FROM mono:slim
 # Update and install a zip utility
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl vim zip && \
+    apt-get install -y curl nuget vim zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
