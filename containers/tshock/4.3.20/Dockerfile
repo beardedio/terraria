@@ -1,10 +1,11 @@
-FROM mono
+FROM mono:slim
 
 # Update and install a zip utility
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y vim zip && \
-    apt-get clean
+    apt-get install -y curl vim zip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create symbolic link to ServerLog.txt
 RUN mkdir /config /tshock && \
