@@ -1,10 +1,11 @@
-FROM mono
+FROM mono:slim
 
-# Update and install a zip utility
+# Update and install needed utils
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y vim zip && \
-    apt-get clean
+    apt-get install -y curl nuget vim zip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create symbolic link to ServerLog.txt
 RUN mkdir /config /tshock && \
@@ -15,7 +16,7 @@ RUN mkdir /config /tshock && \
 # fix for favorites.json error
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
-# Download and install TShock
+# Download and install TShock-Dev Server
 # Build Num: 1039
 # Build URL: https://ci.appveyor.com/project/hakusaro/tshock/builds/32957968
 

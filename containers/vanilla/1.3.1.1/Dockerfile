@@ -1,15 +1,16 @@
-FROM mono
+FROM mono:slim
 
-# Update and install a zip utility
+# Update and install needed utils
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y vim zip && \
-    apt-get clean
+    apt-get install -y curl nuget vim zip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # fix for favorites.json error
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
-# Download and install TShock
+# Download and install Vanilla Server
 ENV VANILLA_VERSION=1311
 
 RUN mkdir /tmp/terraria && \
