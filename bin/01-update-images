@@ -269,6 +269,10 @@ for item in version_list:
 
 # Update latest file
 with open(version_folder+'/latest','w') as f:
-    latest = version_list[0]
+    # Split Version number and URL
+    item = version_list[0].split()
+
+    latest = item[0]
+
     print("Updating latest to: "+latest)
     f.write(latest)
