@@ -238,7 +238,13 @@ for path in paths:
 
 # Create new version folders
 print('Creating new versions for: '+version_folder)
-for version in version_list:
+for item in version_list:
+    # Split Version number and URL
+    item = item.split()
+
+    version = item[0]
+    url = item[1]
+
     print(version)
 
     # Setup
@@ -253,6 +259,7 @@ for version in version_list:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
+    file_contents = file_contents.replace('%%URL%%', url)
 
     with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
