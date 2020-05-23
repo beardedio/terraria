@@ -1,8 +1,7 @@
 
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardedio/terraria/latest) ![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/beardedio/terraria/latest) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
 
-NOTICE: Terraria 1.4.0.3 is now avaiable for the Vanilla Server but not the TShock Server. TShock is working on updating there code to support
-the new version but it may take a while. Check there [repo website](https://github.com/Pryaxis/TShock#readme) for updates.
+NOTICE: Terraria 1.4 is now avaiable for the Vanilla Server and TShock has a pre-release version out for it as well. Keep in mind the pre-release will have bugs. For more infomation about the Tshock pre-release check there [repo website](https://github.com/Pryaxis/TShock#readme).
 
 ### Usage
 ```
