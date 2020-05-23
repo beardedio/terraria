@@ -10,7 +10,7 @@ import os, sys, urllib.request, json, glob, shutil
 #####
 # Configuration
 #####
-limit = 10
+limit = 5
 
 
 
@@ -62,15 +62,20 @@ except urllib.error.HTTPError as err:
     sys.exit()
 
 count = 0
+gotprerelease = False
 for item in data:
     if count == limit:
         break
 
-    if item['prerelease'] or item['draft']:
+    if (gotprerelease and item['prerelease']) or item['draft']:
         continue
 
+    if gotprerelease == False:
+        gotprerelease = True
+
     count += 1
-    version_list.append(item['tag_name'].strip('v'))
+    line = item['tag_name'].strip('v') + " " + item['assets'][0]['browser_download_url']
+    version_list.append(line)
 
 # Delete existing version folders
 print('Deleting versions from: '+version_folder)
@@ -80,7 +85,13 @@ for path in paths:
 
 # Create new version folders
 print('Creating new versions for: '+version_folder)
-for version in version_list:
+for item in version_list:
+    # Split Version number and URL
+    item = item.split()
+
+    version = item[0]
+    url = item[1]
+
     print(version)
 
     # Setup
@@ -95,6 +106,7 @@ for version in version_list:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
+    file_contents = file_contents.replace('%%URL%%', url)
 
     with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
@@ -104,7 +116,11 @@ for version in version_list:
 
 # Update latest file
 with open(version_folder+'/latest','w') as f:
-    latest = version_list[0]
+    # Split Version number and URL
+    item = version_list[0].split()
+
+    latest = item[0]
+
     print("Updating latest to: "+latest)
     f.write(latest)
 
