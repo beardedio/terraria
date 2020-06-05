@@ -37,4 +37,4 @@ VOLUME ["/config", "/tshock/ServerPlugins"]
 
 # Run the server
 WORKDIR /tshock
-CMD ["./run.sh"]
+ENTRYPOINT ["./run.sh"]

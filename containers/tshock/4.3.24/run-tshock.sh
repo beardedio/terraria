@@ -12,4 +12,5 @@ if [ "${world:-null}" != null ]; then
     CMD="$CMD -world /config/$world"
 fi
 
+echo "Starting container, CMD: $CMD $@"
 exec $CMD $@

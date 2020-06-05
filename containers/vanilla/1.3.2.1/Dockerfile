@@ -35,4 +35,4 @@ VOLUME ["/config"]
 
 # Run the server
 WORKDIR /vanilla
-CMD ["./run.sh"]
+ENTRYPOINT ["./run.sh"]
