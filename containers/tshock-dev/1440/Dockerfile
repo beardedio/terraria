@@ -17,11 +17,11 @@ RUN mkdir /config /tshock && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 # Download and install TShock-Dev Server
-# Build Num: 1152
-# Build URL: https://ci.appveyor.com/project/hakusaro/tshock/builds/33067231
+# Build Num: 1440
+# Build URL: https://ci.appveyor.com/project/hakusaro/tshock/builds/33330990
 
 RUN cd /tmp && \
-    curl -sL https://ci.appveyor.com/api/buildjobs/1aapfva97i8cuwqh/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip --output tshock_release.zip && \
+    curl -sL https://ci.appveyor.com/api/buildjobs/ai65ww082bndjclp/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tshock && \
     rm -R /tmp/* && \
     chmod +x /tshock/TerrariaServer.exe

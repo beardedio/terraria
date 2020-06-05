@@ -81,6 +81,7 @@ services:
     volumes:
       - $HOME/terraria/config:/config
     tty: true
+    stdin_open: true
 ```
 
 ### beardedio/terraria:tshock-latest
