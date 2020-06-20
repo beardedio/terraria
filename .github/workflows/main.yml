@@ -4,7 +4,7 @@ name: Auto Build
 
 on:
   schedule:
-    - cron:  '0 9 * * *' # Run at 5am est
+    - cron:  '0 21 * * *' # UTC
 
 jobs:
   build:
