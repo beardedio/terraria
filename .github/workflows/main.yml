@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Update Repo
+name: Auto Build
 
 on:
   schedule:
@@ -15,12 +15,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Login to DockerHub Registry
+      run: echo ${{ secrets.DOCKER_HUB_PASS }} | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Update Images
+      run: ./bin/01-update-images
+
+    - name: Update Readme
+      run: ./bin/02-update-readme
+
+    - name: Build Images
+      run: ./bin/03-build-images
+
