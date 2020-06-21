@@ -4,7 +4,7 @@ name: Auto Build
 
 on:
   schedule:
-    - cron:  '0 3 * * *' # UTC
+    - cron:  '0 9 * * *' # UTC
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
 
         # The message for the commit
         # Default: 'Commit from GitHub Actions'
-        message: 'CI: Autobuild Repo ${{ date -Iseconds }}'
+        message: 'CI: Autobuild Repo'
 
       env:
         # This is necessary in order to push a commit to the repo
