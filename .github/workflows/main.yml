@@ -4,7 +4,7 @@ name: Auto Build
 
 on:
   schedule:
-    - cron:  '0 21 * * *' # UTC
+    - cron:  '0 3 * * *' # UTC
 
 jobs:
   build:
@@ -19,11 +19,35 @@ jobs:
       run: echo ${{ secrets.DOCKER_HUB_PASS }} | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
 
     - name: Update Images
-      run: ./bin/01-update-images
+      run: ./bin/01-update-images ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update Readme
       run: ./bin/02-update-readme
 
-    - name: Build Images
-      run: ./bin/03-build-images
+    - uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+      with:
+        # The name of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_name: "bskrtich-ci"
 
+        # The email of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_email: bskrtich-ci@bearded.io
+
+        # Whether to use the --force option on `git add`, in order to bypass eventual gitignores
+        # Default: false
+        #force: true
+
+        # The message for the commit
+        # Default: 'Commit from GitHub Actions'
+        message: 'CI: Autobuild Repo ${{ date -Iseconds }}'
+
+      env:
+        # This is necessary in order to push a commit to the repo
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+
+    - name: Build Images
+      run: ./bin/03-build-images push
+
+    - name: Build Images
+      run: ./bin/04-push-readme ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_PASS }}
