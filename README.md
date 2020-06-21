@@ -30,11 +30,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/repository/doc
 * tshock-4.3.25 [(containers/tshock/4.3.25/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.25/Dockerfile)
 * tshock-4.3.24 [(containers/tshock/4.3.24/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.24/Dockerfile)
 * tshock-4.3.23 [(containers/tshock/4.3.23/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.23/Dockerfile)
-* tshock-dev-1441, tshock-dev-latest [(containers/tshock-dev/1441/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1441/Dockerfile)
-* tshock-dev-1440 [(containers/tshock-dev/1440/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1440/Dockerfile)
-* tshock-dev-1439 [(containers/tshock-dev/1439/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1439/Dockerfile)
-* tshock-dev-1438 [(containers/tshock-dev/1438/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1438/Dockerfile)
-* tshock-dev-1436 [(containers/tshock-dev/1436/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1436/Dockerfile)
+* tshock-dev-1548, tshock-dev-latest [(containers/tshock-dev/1548/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1548/Dockerfile)
+* tshock-dev-1545 [(containers/tshock-dev/1545/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1545/Dockerfile)
+* tshock-dev-1543 [(containers/tshock-dev/1543/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1543/Dockerfile)
+* tshock-dev-1541 [(containers/tshock-dev/1541/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1541/Dockerfile)
+* tshock-dev-1540 [(containers/tshock-dev/1540/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1540/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
