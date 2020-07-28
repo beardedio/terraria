@@ -13,7 +13,7 @@ docker create --rm -it \
   beardedio/terraria
 ```
 
-Docker Images are avaiable on [Docker Hub](https://hub.docker.com/repository/docker/beardedio/terraria)
+Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
 
 ### Supported tags and respective `Dockerfile` links
 %%TAGS%%

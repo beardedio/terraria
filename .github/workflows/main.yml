@@ -46,8 +46,8 @@ jobs:
         # This is necessary in order to push a commit to the repo
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
 
-    - name: Build Images
+    - name: Build and Push Images
       run: ./bin/03-build-images push
 
-    - name: Build Images
+    - name: Push Readme
       run: ./bin/04-push-readme ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_PASS }}
