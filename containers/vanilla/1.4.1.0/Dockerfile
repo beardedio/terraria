@@ -11,11 +11,11 @@ RUN apt-get update && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 # Download and install Vanilla Server
-# ENV VANILLA_VERSION=1321
+# ENV VANILLA_VERSION=1410
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
-    curl -sL http://terraria.org/server/terraria-server-1321.zip --output terraria-server.zip && \
+    curl -sL https://www.terraria.org/system/dedicated_servers/archives/000/000/040/original/terraria-server-1410.zip --output terraria-server.zip && \
     unzip -q terraria-server.zip && \
     mv */Linux /vanilla && \
     mv */Windows/serverconfig.txt /vanilla/serverconfig-default.txt && \
