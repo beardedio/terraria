@@ -23,6 +23,7 @@ RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && ec
 RUN cd /tmp && \
     curl -sL https://ci.appveyor.com/api/buildjobs/r8819l2k4723myoh/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tshock && \
+    if [ -d /tshock/deploy/ ]; then mv /tshock/deploy/* /tshock/; fi && \
     rm -R /tmp/* && \
     chmod +x /tshock/TerrariaServer.exe
 

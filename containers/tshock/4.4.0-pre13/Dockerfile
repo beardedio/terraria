@@ -22,6 +22,7 @@ RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && ec
 RUN cd /tmp && \
     curl -sL https://github.com/Pryaxis/TShock/releases/download/v4.4.0-pre13/TShock4.4.0_Pre13_Terraria1.4.1.1.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tshock && \
+    if [ -d /tshock/deploy/ ]; then mv /tshock/deploy/* /tshock/; fi && \
     rm -R /tmp/* && \
     chmod +x /tshock/TerrariaServer.exe
 
