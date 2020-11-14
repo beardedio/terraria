@@ -106,7 +106,7 @@ for item in version_list:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
-    file_contents = file_contents.replace('%%URL%%', url)
+    file_contents = file_contents.replace('%%DOWNLOAD_URL%%', url)
 
     with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
@@ -275,7 +275,7 @@ for item in version_list:
         file_contents = f.read()
 
     file_contents = file_contents.replace('%%VERSION%%', vnumber)
-    file_contents = file_contents.replace('%%URL%%', url)
+    file_contents = file_contents.replace('%%DOWNLOAD_URL%%', url)
 
     with open(vfolder+'/Dockerfile','w') as f:
         f.write(file_contents)
