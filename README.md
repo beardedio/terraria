@@ -30,11 +30,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * tshock-4.3.25 [(containers/tshock/4.3.25/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.25/Dockerfile)
 * tshock-4.3.24 [(containers/tshock/4.3.24/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.24/Dockerfile)
 * tshock-4.3.23 [(containers/tshock/4.3.23/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.23/Dockerfile)
-* tshock-dev-1655, tshock-dev-latest [(containers/tshock-dev/1655/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1655/Dockerfile)
-* tshock-dev-1653 [(containers/tshock-dev/1653/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1653/Dockerfile)
-* tshock-dev-1652 [(containers/tshock-dev/1652/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1652/Dockerfile)
-* tshock-dev-1651 [(containers/tshock-dev/1651/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1651/Dockerfile)
-* tshock-dev-1650 [(containers/tshock-dev/1650/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1650/Dockerfile)
+* tshock-dev-1659, tshock-dev-latest [(containers/tshock-dev/1659/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1659/Dockerfile)
+* tshock-dev-1658 [(containers/tshock-dev/1658/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1658/Dockerfile)
+* tshock-dev-1657 [(containers/tshock-dev/1657/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1657/Dockerfile)
+* tshock-dev-1656 [(containers/tshock-dev/1656/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1656/Dockerfile)
+* tshock-dev-1655 [(containers/tshock-dev/1655/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1655/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
