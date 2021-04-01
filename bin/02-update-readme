@@ -48,8 +48,8 @@ repodir = os.getcwd()
 print("Generating tag list")
 tags = ""
 
-for filepath in sorted(glob.iglob(repodir+'/containers/*/*/Dockerfile'), reverse=True):
-    os.chdir(os.path.dirname(filepath))
+for filepath in sorted(glob.iglob(repodir+'/containers/*/[!latest]*'), reverse=True):
+    os.chdir(filepath)
 
     version = os.path.basename(os.getcwd())
     folder = os.path.basename(os.path.abspath(os.getcwd()+"/../"))
