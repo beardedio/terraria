@@ -32,14 +32,13 @@ trap 'kill ${!}; graceful_shutdown' SIGTERM
 
 function graceful_shutdown() {
     # Send a message to players that the server is shutting down
-    # echo say 'Server shutting down' > /vanilla/console
     screen -p 0 -S terraria_server_screen -X eval "stuff 'say Server shutting down'\015"
 
     echo "Stopping Terraria server..."
     echo "Saving world"
 
+    # Send 'exit' command to Terraria Server
     screen -p 0 -S terraria_server_screen -X eval "stuff 'exit'\015"
-    # echo exit  > /vanilla/console
 
     # Waiting for server to finish saving & shutting down
     pid=$(pgrep -f ^./TerrariaServer)
@@ -56,7 +55,6 @@ echo "Starting container, CMD: $CMD $@"
 screen -AmdS terraria_server_screen bash -c "$CMD $@ | tee -a /config/server.log"
 sleep 5
 tail -f /config/server.log &
-#(tail -f > /vanilla/console & $CMD $@ < console) &
 
 tail -f /dev/null & wait ${!}
 
