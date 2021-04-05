@@ -27,23 +27,19 @@ if [ "${world:-null}" != null ]; then
     CMD="$CMD -world /config/$world"
 fi
 
-# Create named pipe if one doesn't already exist
-# This is so we can send input to TerrariaServer
-if [ ! -p "/vanilla/console" ]; then
-    mkfifo /vanilla/console
-fi
-
 # trap SIGTERM signal and call graceful_shutdown
 trap 'kill ${!}; graceful_shutdown' SIGTERM
 
 function graceful_shutdown() {
     # Send a message to players that the server is shutting down
-    echo say 'Server shutting down' > /vanilla/console
+    # echo say 'Server shutting down' > /vanilla/console
+    screen -p 0 -S terraria_server_screen -X eval "stuff 'say Server shutting down'\015"
 
     echo "Stopping Terraria server..."
     echo "Saving world"
 
-    echo exit  > /vanilla/console
+    screen -p 0 -S terraria_server_screen -X eval "stuff 'exit'\015"
+    # echo exit  > /vanilla/console
 
     # Waiting for server to finish saving & shutting down
     pid=$(pgrep -f ^./TerrariaServer)
@@ -57,7 +53,10 @@ function graceful_shutdown() {
 }
 
 echo "Starting container, CMD: $CMD $@"
-(tail -f > /vanilla/console & $CMD $@ < console) &
+screen -AmdS terraria_server_screen bash -c "$CMD $@ | tee -a /config/server.log"
+sleep 5
+tail -f /config/server.log &
+#(tail -f > /vanilla/console & $CMD $@ < console) &
 
 tail -f /dev/null & wait ${!}
 
