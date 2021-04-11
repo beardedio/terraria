@@ -25,16 +25,16 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * vanilla-1.4.0.5 [(containers/vanilla/1.4.0.5/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.0.5/Dockerfile)
 * vanilla-1.3.5.3 [(containers/vanilla/1.3.5.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.3.5.3/Dockerfile)
 * vanilla-1.3.4.4 [(containers/vanilla/1.3.4.4/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.3.4.4/Dockerfile)
-* tshock-4.4.0-pre15, tshock-latest [(containers/tshock/4.4.0-pre15/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.4.0-pre15/Dockerfile)
+* tshock-4.5.0, tshock-latest [(containers/tshock/4.5.0/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.0/Dockerfile)
 * tshock-4.3.26 [(containers/tshock/4.3.26/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.26/Dockerfile)
 * tshock-4.3.25 [(containers/tshock/4.3.25/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.25/Dockerfile)
 * tshock-4.3.24 [(containers/tshock/4.3.24/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.24/Dockerfile)
 * tshock-4.3.23 [(containers/tshock/4.3.23/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.3.23/Dockerfile)
-* tshock-dev-1659, tshock-dev-latest [(containers/tshock-dev/1659/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1659/Dockerfile)
-* tshock-dev-1658 [(containers/tshock-dev/1658/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1658/Dockerfile)
-* tshock-dev-1657 [(containers/tshock-dev/1657/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1657/Dockerfile)
-* tshock-dev-1656 [(containers/tshock-dev/1656/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1656/Dockerfile)
-* tshock-dev-1655 [(containers/tshock-dev/1655/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1655/Dockerfile)
+* tshock-dev-1674, tshock-dev-latest [(containers/tshock-dev/1674/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1674/Dockerfile)
+* tshock-dev-1672 [(containers/tshock-dev/1672/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1672/Dockerfile)
+* tshock-dev-1670 [(containers/tshock-dev/1670/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1670/Dockerfile)
+* tshock-dev-1669 [(containers/tshock-dev/1669/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1669/Dockerfile)
+* tshock-dev-1668 [(containers/tshock-dev/1668/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1668/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
