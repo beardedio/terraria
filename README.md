@@ -30,11 +30,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * tshock-4.5.2 [(containers/tshock/4.5.2/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.2/Dockerfile)
 * tshock-4.5.1 [(containers/tshock/4.5.1/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.1/Dockerfile)
 * tshock-4.5.0.1 [(containers/tshock/4.5.0.1/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.0.1/Dockerfile)
-* tshock-dev-1929, tshock-dev-latest [(containers/tshock-dev/1929/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1929/Dockerfile)
-* tshock-dev-1928 [(containers/tshock-dev/1928/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1928/Dockerfile)
-* tshock-dev-1926 [(containers/tshock-dev/1926/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1926/Dockerfile)
-* tshock-dev-1924 [(containers/tshock-dev/1924/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1924/Dockerfile)
-* tshock-dev-1921 [(containers/tshock-dev/1921/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1921/Dockerfile)
+* tshock-dev-1935, tshock-dev-latest [(containers/tshock-dev/1935/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1935/Dockerfile)
+* tshock-dev-1934 [(containers/tshock-dev/1934/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1934/Dockerfile)
+* tshock-dev-1933 [(containers/tshock-dev/1933/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1933/Dockerfile)
+* tshock-dev-1932 [(containers/tshock-dev/1932/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1932/Dockerfile)
+* tshock-dev-1931 [(containers/tshock-dev/1931/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/1931/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
