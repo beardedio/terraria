@@ -11,7 +11,7 @@ RUN apt-get update && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 # Download and install Vanilla Server
-# ENV VANILLA_VERSION=1423
+# ENV VANILLA_VERSION=143
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
