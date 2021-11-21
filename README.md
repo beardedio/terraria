@@ -30,11 +30,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * tshock-4.5.3 [(containers/tshock/4.5.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.3/Dockerfile)
 * tshock-4.5.2 [(containers/tshock/4.5.2/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.2/Dockerfile)
 * tshock-4.5.1 [(containers/tshock/4.5.1/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.1/Dockerfile)
-* tshock-dev-2069, tshock-dev-latest [(containers/tshock-dev/2069/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2069/Dockerfile)
-* tshock-dev-2066 [(containers/tshock-dev/2066/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2066/Dockerfile)
-* tshock-dev-2065 [(containers/tshock-dev/2065/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2065/Dockerfile)
-* tshock-dev-2064 [(containers/tshock-dev/2064/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2064/Dockerfile)
-* tshock-dev-2063 [(containers/tshock-dev/2063/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2063/Dockerfile)
+* tshock-dev-2076, tshock-dev-latest [(containers/tshock-dev/2076/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2076/Dockerfile)
+* tshock-dev-2075 [(containers/tshock-dev/2075/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2075/Dockerfile)
+* tshock-dev-2074 [(containers/tshock-dev/2074/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2074/Dockerfile)
+* tshock-dev-2073 [(containers/tshock-dev/2073/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2073/Dockerfile)
+* tshock-dev-2072 [(containers/tshock-dev/2072/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2072/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
