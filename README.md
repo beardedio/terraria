@@ -30,11 +30,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * tshock-4.5.7 [(containers/tshock/4.5.7/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.7/Dockerfile)
 * tshock-4.5.6 [(containers/tshock/4.5.6/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.6/Dockerfile)
 * tshock-4.5.10, tshock-latest [(containers/tshock/4.5.10/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.10/Dockerfile)
-* tshock-dev-2112, tshock-dev-latest [(containers/tshock-dev/2112/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2112/Dockerfile)
-* tshock-dev-2111 [(containers/tshock-dev/2111/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2111/Dockerfile)
-* tshock-dev-2110 [(containers/tshock-dev/2110/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2110/Dockerfile)
-* tshock-dev-2106 [(containers/tshock-dev/2106/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2106/Dockerfile)
-* tshock-dev-2105 [(containers/tshock-dev/2105/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2105/Dockerfile)
+* tshock-dev-2125, tshock-dev-latest [(containers/tshock-dev/2125/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2125/Dockerfile)
+* tshock-dev-2124 [(containers/tshock-dev/2124/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2124/Dockerfile)
+* tshock-dev-2123 [(containers/tshock-dev/2123/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2123/Dockerfile)
+* tshock-dev-2122 [(containers/tshock-dev/2122/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2122/Dockerfile)
+* tshock-dev-2121 [(containers/tshock-dev/2121/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2121/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
