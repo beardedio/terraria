@@ -20,11 +20,9 @@ docker create --rm -it \
 Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
 
 ### Supported tags and respective `Dockerfile` links
-* vanilla-1.4.2.3, vanilla-latest, latest [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.2.3/Dockerfile)
+* vanilla-1.4.3.2, vanilla-latest, latest [(containers/vanilla/1.4.3.2/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.3.2/Dockerfile)
+* vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.2.3/Dockerfile)
 * vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.1.2/Dockerfile)
-* vanilla-1.4.0.5 [(containers/vanilla/1.4.0.5/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.0.5/Dockerfile)
-* vanilla-1.3.5.3 [(containers/vanilla/1.3.5.3/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.3.5.3/Dockerfile)
-* vanilla-1.3.4.4 [(containers/vanilla/1.3.4.4/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.3.4.4/Dockerfile)
 * tshock-4.5.9 [(containers/tshock/4.5.9/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.9/Dockerfile)
 * tshock-4.5.8 [(containers/tshock/4.5.8/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.8/Dockerfile)
 * tshock-4.5.7 [(containers/tshock/4.5.7/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.7/Dockerfile)
