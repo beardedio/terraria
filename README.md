@@ -28,11 +28,11 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * tshock-4.5.7 [(containers/tshock/4.5.7/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.7/Dockerfile)
 * tshock-4.5.6 [(containers/tshock/4.5.6/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.6/Dockerfile)
 * tshock-4.5.10, tshock-latest [(containers/tshock/4.5.10/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.10/Dockerfile)
-* tshock-dev-2143, tshock-dev-latest [(containers/tshock-dev/2143/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2143/Dockerfile)
+* tshock-dev-2147, tshock-dev-latest [(containers/tshock-dev/2147/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2147/Dockerfile)
+* tshock-dev-2145 [(containers/tshock-dev/2145/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2145/Dockerfile)
+* tshock-dev-2143 [(containers/tshock-dev/2143/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2143/Dockerfile)
 * tshock-dev-2141 [(containers/tshock-dev/2141/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2141/Dockerfile)
 * tshock-dev-2140 [(containers/tshock-dev/2140/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2140/Dockerfile)
-* tshock-dev-2138 [(containers/tshock-dev/2138/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2138/Dockerfile)
-* tshock-dev-2136 [(containers/tshock-dev/2136/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock-dev/2136/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
