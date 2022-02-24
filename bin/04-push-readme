@@ -69,13 +69,13 @@ with open('README.md', 'r') as f:
 #####
 with requests.Session() as s:
     # Start sign in process for docker hub
-    r0 = s.get('https://hub.docker.com/sso/start/?next=https://hub.docker.com/')
+    r0 = s.get('https://hub.docker.com/login/')
     r0.raise_for_status()
 
-    # Parse callback url
-    parsed = urllib.parse.urlparse(r0.url)
-    query = urllib.parse.parse_qs(parsed.query)
-    callbackurl = 'https://id.docker.com'+query['next'][0]
+    # # Parse callback url
+    # parsed = urllib.parse.urlparse(r0.url)
+    # query = urllib.parse.parse_qs(parsed.query)
+    # callbackurl = 'https://id.docker.com'+query['next'][0]
 
     # Log in to oauth2 server
     payload = {

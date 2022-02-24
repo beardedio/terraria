@@ -49,5 +49,13 @@ jobs:
     - name: Build and Push Images
       run: ./bin/03-build-images push
 
-    - name: Push Readme
-      run: ./bin/04-push-readme ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_PASS }}
+    #- name: Push Readme
+    #  run: ./bin/04-push-readme ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_PASS }}
+
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASS }}
+        repository: beardedio/terraria
+        short-description: "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."
