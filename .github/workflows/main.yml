@@ -3,7 +3,7 @@
 name: Auto Build
 
 on:
-  workflow_call:
+  workflow_dispatch:
   schedule:
     - cron:  '0 9 * * *' # UTC
 
