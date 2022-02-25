@@ -1,5 +1,5 @@
 
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardedio/terraria/latest) [![Auto Build](https://github.com/beardedio/terraria/actions/workflows/main.yml/badge.svg)](https://github.com/beardedio/terraria/actions/workflows/main.yml) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
+[![Auto Build](https://github.com/beardedio/terraria/actions/workflows/main.yml/badge.svg)](https://github.com/beardedio/terraria/actions/workflows/main.yml) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardedio/terraria/latest) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
 
 ### Usage
 ```
