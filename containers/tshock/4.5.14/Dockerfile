@@ -16,12 +16,11 @@ RUN mkdir /config /tshock && \
 # fix for favorites.json error
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
-# Download and install TShock-Dev Server
-# Build Num: 2251
-# Build URL: https://ci.appveyor.com/project/hakusaro/tshock/builds/42679510
+# Download and install TShock Server
+# ENV TSHOCK_VERSION=4.5.14
 
 RUN cd /tmp && \
-    curl -sL https://ci.appveyor.com/api/buildjobs/12ra36fsaaitgfho/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip --output tshock_release.zip && \
+    curl -sL https://github.com/Pryaxis/TShock/releases/download/v4.5.14/TShock4.5.14_Terraria1.4.3.4.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
     cd $(find . -name TerrariaServer.exe -printf '%h\n') && \
