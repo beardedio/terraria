@@ -1,9 +1,17 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Auto Build
 
 on:
   workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Docker Tag'
+        required: false
+        default: 'latest'
+  push:
+    branches: [main,master]
+    # Only build when files in these directories have been changed
+    paths:
+      - containers/**
   schedule:
     - cron:  '0 9 * * *' # UTC
 
@@ -14,10 +22,20 @@ jobs:
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
-    - name: Login to DockerHub Registry
-      run: echo ${{ secrets.DOCKER_HUB_PASS }} | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
+    - name: Login to Dockerhub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    # - name: Login to ghcr
+    #   uses: docker/login-action@v2
+    #   with:
+    #     registry: ghcr.io
+    #     username: ${{ github.repository_owner }}
+    #     password: ${{ secrets.GHCR_PASSWORD }}
 
     - name: Update Images
       run: ./bin/01-update-images ${{ secrets.GITHUB_TOKEN }}
@@ -50,11 +68,8 @@ jobs:
     - name: Build and Push Images
       run: ./bin/03-build-images push
 
-    #- name: Push Readme
-    #  run: ./bin/04-push-readme ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_PASS }}
-
     - name: Docker Hub Description
-      uses: peter-evans/dockerhub-description@v2
+      uses: peter-evans/dockerhub-description@v3
       with:
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASS }}
