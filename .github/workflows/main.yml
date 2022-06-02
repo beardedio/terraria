@@ -2,11 +2,11 @@ name: Auto Build
 
 on:
   workflow_dispatch:
-    inputs:
-      tags:
-        description: 'Docker Tag'
-        required: false
-        default: 'latest'
+    # inputs:
+    #   tags:
+    #     description: 'Docker Tag'
+    #     required: false
+    #     default: 'latest'
   push:
     branches: [main,master]
     # Only build when files in these directories have been changed
