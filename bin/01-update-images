@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-import os, sys, urllib.request, json, glob, shutil
+import os, sys, urllib.request, json, glob, shutil, datetime
 
 #####
 #
@@ -166,8 +166,17 @@ while count < limit:
         if build['status'] != 'success':
             continue
 
+        month_ago = (datetime.date.today()-datetime.timedelta(days=30)).isoformat()
+        build_date = build['started'].split('T',1)[0]
+        if build_date < month_ago:
+            break
+
         count += 1
         build_id_list.append(str(build['buildId']))
+
+    else:
+        continue  # only executed if the inner loop did NOT break
+    break  # only executed if the inner loop DID break
 
 # Delete existing version folders
 print('Deleting versions from: '+version_folder)
