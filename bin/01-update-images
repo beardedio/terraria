@@ -126,115 +126,117 @@ with open(version_folder+'/latest','w') as f:
 
 
 
-print("\n")
-print('#####')
-print('# Get TShock-dev Versions')
-print('#####')
+##### DISABLED FOR NOW
 
-# Config
-template_folder = repodir+'/template/tshock-dev'
-version_folder = repodir+'/containers/tshock-dev'
-build_id_list = []
+# print("\n")
+# print('#####')
+# print('# Get TShock-dev Versions')
+# print('#####')
 
-# Create new version folders
-print('Creating new versions for: '+version_folder)
+# # Config
+# template_folder = repodir+'/template/tshock-dev'
+# version_folder = repodir+'/containers/tshock-dev'
+# build_id_list = []
 
-# Build a version list of TShock-dev versions
-count = 0
-startbuildid = ''
-while count < limit:
-    try:
-        url = "https://ci.appveyor.com/api/projects/hakusaro/tshock/history?recordsNumber=10&branch=general-devel"
+# # Create new version folders
+# print('Creating new versions for: '+version_folder)
 
-        if startbuildid != '':
-            url = url+'&startBuildId='+startbuildid
+# # Build a version list of TShock-dev versions
+# count = 0
+# startbuildid = ''
+# while count < limit:
+#     try:
+#         url = "https://ci.appveyor.com/api/projects/hakusaro/tshock/history?recordsNumber=10&branch=general-devel"
 
-        req = urllib.request.Request(url)
-        req.add_header('Content-Type', 'application/json; charset=utf-8')
-        r = urllib.request.urlopen(req)
-        data = json.loads(r.read().decode('utf-8'))
-    except urllib.error.HTTPError as err:
-        print(err.reason)
-        sys.exit()
+#         if startbuildid != '':
+#             url = url+'&startBuildId='+startbuildid
 
-    for build in data['builds']:
-        if count == limit:
-            break
+#         req = urllib.request.Request(url)
+#         req.add_header('Content-Type', 'application/json; charset=utf-8')
+#         r = urllib.request.urlopen(req)
+#         data = json.loads(r.read().decode('utf-8'))
+#     except urllib.error.HTTPError as err:
+#         print(err.reason)
+#         sys.exit()
 
-        startbuildid = str(build['buildId'])
+#     for build in data['builds']:
+#         if count == limit:
+#             break
 
-        if build['status'] != 'success':
-            continue
+#         startbuildid = str(build['buildId'])
 
-        month_ago = (datetime.date.today()-datetime.timedelta(days=30)).isoformat()
-        build_date = build['started'].split('T',1)[0]
-        if build_date < month_ago:
-            break
+#         if build['status'] != 'success':
+#             continue
 
-        count += 1
-        build_id_list.append(str(build['buildId']))
+#         month_ago = (datetime.date.today()-datetime.timedelta(days=30)).isoformat()
+#         build_date = build['started'].split('T',1)[0]
+#         if build_date < month_ago:
+#             break
 
-    else:
-        continue  # only executed if the inner loop did NOT break
-    break  # only executed if the inner loop DID break
+#         count += 1
+#         build_id_list.append(str(build['buildId']))
 
-# Delete existing version folders
-print('Deleting versions from: '+version_folder)
-paths = glob.glob(version_folder+'/*/')
-for path in paths:
-    shutil.rmtree(path, False)
+#     else:
+#         continue  # only executed if the inner loop did NOT break
+#     break  # only executed if the inner loop DID break
 
-# Create new version folders
-print('Creating new versions for: '+version_folder)
-latest = ''
-for build_id in build_id_list:
-    # Get build data
-    # https://ci.appveyor.com/api/projects/hakusaro/tshock/builds/32885247
-    try:
-        url = 'https://ci.appveyor.com/api/projects/hakusaro/tshock/builds/'+build_id
-        req = urllib.request.Request(url)
-        req.add_header('Content-Type', 'application/json; charset=utf-8')
-        r = urllib.request.urlopen(req)
-        data = json.loads(r.read().decode('utf-8'))
-    except urllib.error.HTTPError as err:
-        print(err.reason)
-        sys.exit()
+# # Delete existing version folders
+# print('Deleting versions from: '+version_folder)
+# paths = glob.glob(version_folder+'/*/')
+# for path in paths:
+#     shutil.rmtree(path, False)
 
-    # Get job_uuid
-    job_uuid = data['build']['jobs'][0]['jobId']
+# # Create new version folders
+# print('Creating new versions for: '+version_folder)
+# latest = ''
+# for build_id in build_id_list:
+#     # Get build data
+#     # https://ci.appveyor.com/api/projects/hakusaro/tshock/builds/32885247
+#     try:
+#         url = 'https://ci.appveyor.com/api/projects/hakusaro/tshock/builds/'+build_id
+#         req = urllib.request.Request(url)
+#         req.add_header('Content-Type', 'application/json; charset=utf-8')
+#         r = urllib.request.urlopen(req)
+#         data = json.loads(r.read().decode('utf-8'))
+#     except urllib.error.HTTPError as err:
+#         print(err.reason)
+#         sys.exit()
 
-    # Get build number to use as version
-    version = str(data['build']['buildNumber'])
-    print(version)
+#     # Get job_uuid
+#     job_uuid = data['build']['jobs'][0]['jobId']
 
-    if latest == '':
-        latest = version
+#     # Get build number to use as version
+#     version = str(data['build']['buildNumber'])
+#     print(version)
 
-    # Setup
-    vfolder = version_folder+'/'+version
-    vnumber = version
+#     if latest == '':
+#         latest = version
 
-    # Copy template to new folder
-    shutil.copytree(template_folder, vfolder)
+#     # Setup
+#     vfolder = version_folder+'/'+version
+#     vnumber = version
 
-    # Filter replace codes
-    with open(vfolder+'/Dockerfile.template', 'r') as f:
-        file_contents = f.read()
+#     # Copy template to new folder
+#     shutil.copytree(template_folder, vfolder)
 
-    file_contents = file_contents.replace('%%BUILD_NUMBER%%', version)
-    file_contents = file_contents.replace('%%BUILD_URL%%', 'https://ci.appveyor.com/project/hakusaro/tshock/builds/'+build_id)
-    file_contents = file_contents.replace('%%DOWNLOAD_URL%%', 'https://ci.appveyor.com/api/buildjobs/'+job_uuid+'/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip')
+#     # Filter replace codes
+#     with open(vfolder+'/Dockerfile.template', 'r') as f:
+#         file_contents = f.read()
 
-    with open(vfolder+'/Dockerfile','w') as f:
-        f.write(file_contents)
+#     file_contents = file_contents.replace('%%BUILD_NUMBER%%', version)
+#     file_contents = file_contents.replace('%%BUILD_URL%%', 'https://ci.appveyor.com/project/hakusaro/tshock/builds/'+build_id)
+#     file_contents = file_contents.replace('%%DOWNLOAD_URL%%', 'https://ci.appveyor.com/api/buildjobs/'+job_uuid+'/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip')
 
-    # Delete dockerfile.template
-    os.remove(vfolder+'/Dockerfile.template')
+#     with open(vfolder+'/Dockerfile','w') as f:
+#         f.write(file_contents)
 
-# Update latest file
-with open(version_folder+'/latest','w') as f:
-    print("Updating latest to: "+latest)
-    f.write(latest)
+#     # Delete dockerfile.template
+#     os.remove(vfolder+'/Dockerfile.template')
+
+# # Update latest file
+# with open(version_folder+'/latest','w') as f:
+#     print("Updating latest to: "+latest)
+#     f.write(latest)
 
 
 
