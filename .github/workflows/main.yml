@@ -12,6 +12,7 @@ on:
     # Only build when files in these directories have been changed
     paths:
       - containers/**
+      - template/**
   schedule:
     - cron:  '0 9 * * *' # UTC
 
