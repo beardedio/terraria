@@ -36,13 +36,13 @@ for file in $BASEDIR/containers/*/*/Dockerfile ; do
 
         green "Building $DOCKER_TAG"
 
-        if [[ "${*-}" != *rebuild* ]]; then
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/")
-            if [ "$STATUS" == 200 ]; then
-                yellow 'Tag already exists, skipping build...\n'
-                continue
-            fi
-        fi
+        # if [[ "${*-}" != *rebuild* ]]; then
+        #     STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$CI_REGISTRY_IMAGE/tags/$DOCKER_TAG/")
+        #     if [ "$STATUS" == 200 ]; then
+        #         yellow 'Tag already exists, skipping build...\n'
+        #         continue
+        #     fi
+        # fi
 
         docker build --build-arg VCS_REF=`git rev-parse --short HEAD` --pull --tag "$CI_REGISTRY_IMAGE:$DOCKER_TAG" .
 
