@@ -17,10 +17,10 @@ RUN mkdir /config /tshock && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 # Download and install TShock Server
-# ENV TSHOCK_VERSION=4.5.14
+# ENV TSHOCK_VERSION=5.0.0
 
 RUN cd /tmp && \
-    curl -sL https://github.com/Pryaxis/TShock/releases/download/v4.5.14/TShock4.5.14_Terraria1.4.3.4.zip --output tshock_release.zip && \
+    curl -sL https://github.com/Pryaxis/TShock/releases/download/v5.0.0/TShock-5.0.0-for-Terraria-1.4.4.7-linux-arm-Release.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
     cd $(find . -name TerrariaServer.exe -printf '%h\n') && \
