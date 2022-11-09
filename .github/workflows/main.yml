@@ -14,7 +14,7 @@ on:
       - containers/**
       - template/**
   schedule:
-    - cron:  '0 9 * * *' # UTC
+    - cron:  '0 0/1 * * *' # run hourly
 
 jobs:
   build:
