@@ -24,9 +24,6 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/te
 * vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.1.2/Dockerfile)
 * tshock-5.1.1, tshock-latest [(containers/tshock/5.1.1/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/5.1.1/Dockerfile)
 * tshock-5.0.0 [(containers/tshock/5.0.0/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/5.0.0/Dockerfile)
-* tshock-4.5.18 [(containers/tshock/4.5.18/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.18/Dockerfile)
-* tshock-4.5.17 [(containers/tshock/4.5.17/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.17/Dockerfile)
-* tshock-4.5.16 [(containers/tshock/4.5.16/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/tshock/4.5.16/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
