@@ -70,11 +70,20 @@ for item in data:
     if (gotprerelease and item['prerelease']) or item['draft']:
         continue
 
+    # Skip older versions
+    if not item['tag_name'].startswith('v5'):
+        continue
+
     if gotprerelease == False:
         gotprerelease = True
 
+    dl_item_id = 0
+    for i, elem in enumerate(item['assets']):
+        if "linux-x64" in item['assets'][i]['browser_download_url']:
+            dl_item_id = i
+
     count += 1
-    line = item['tag_name'].strip('v') + " " + item['assets'][0]['browser_download_url']
+    line = item['tag_name'].strip('v') + " " + item['assets'][dl_item_id]['browser_download_url']
     version_list.append(line)
 
 # Delete existing version folders

@@ -1,4 +1,4 @@
-FROM mono:slim
+FROM mcr.microsoft.com/dotnet/runtime:6.0
 
 # Update and install needed utils
 RUN apt-get update && \
@@ -23,10 +23,10 @@ RUN cd /tmp && \
     curl -sL %%DOWNLOAD_URL%% --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
-    cd $(find . -name TerrariaServer.exe -printf '%h\n') && \
+    mkdir ./untar && tar -xf *.tar -C ./untar && \
+    cd $(find . -type f -name TShock.Server -printf '%h\n') && \
     mv ./* /tshock/ && \
-    rm -R /tmp/* && \
-    chmod +x /tshock/TerrariaServer.exe
+    rm -R /tmp/*
 
 COPY run-tshock.sh /tshock/run.sh
 

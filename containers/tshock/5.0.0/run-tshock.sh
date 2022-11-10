@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-CMD="mono --server --gc=sgen -O=all TerrariaServer.exe -configpath /config -worldpath /config -worldselectpath /config -logpath /config"
+CMD="./TShock.Server -configpath /config -worldpath /config -worldselectpath /config -logpath /config"
 
 # Pass in world if set
 if [ "${world:-null}" != null ]; then

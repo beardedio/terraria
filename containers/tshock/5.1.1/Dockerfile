@@ -1,4 +1,4 @@
-FROM mono:slim
+FROM mcr.microsoft.com/dotnet/runtime:6.0
 
 # Update and install needed utils
 RUN apt-get update && \
@@ -20,13 +20,13 @@ RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && ec
 # ENV TSHOCK_VERSION=5.1.1
 
 RUN cd /tmp && \
-    curl -sL https://github.com/Pryaxis/TShock/releases/download/v5.1.1/TShock-5.1.1-for-Terraria-1.4.4.8-linux-arm-Release.zip --output tshock_release.zip && \
+    curl -sL https://github.com/Pryaxis/TShock/releases/download/v5.1.1/TShock-5.1.1-for-Terraria-1.4.4.8-linux-x64-Release.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
-    cd $(find . -name TerrariaServer.exe -printf '%h\n') && \
+    mkdir ./untar && tar -xf *.tar -C ./untar && \
+    cd $(find . -type f -name TShock.Server -printf '%h\n') && \
     mv ./* /tshock/ && \
-    rm -R /tmp/* && \
-    chmod +x /tshock/TerrariaServer.exe
+    rm -R /tmp/*
 
 COPY run-tshock.sh /tshock/run.sh
 
