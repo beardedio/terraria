@@ -31,12 +31,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    # - name: Login to ghcr
-    #   uses: docker/login-action@v2
-    #   with:
-    #     registry: ghcr.io
-    #     username: ${{ github.repository_owner }}
-    #     password: ${{ secrets.GHCR_PASSWORD }}
+    - name: Login to ghcr
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GHCR_PASSWORD }}
 
     - name: Update Images
       run: ./bin/01-update-images ${{ secrets.GITHUB_TOKEN }}
@@ -66,8 +66,15 @@ jobs:
         # This is necessary in order to push a commit to the repo
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
 
-    - name: Build and Push Images
+    - name: Build and Push Images to ghcr.io
       run: ./bin/03-build-images push
+      env:
+        CI_REGISTRY_IMAGE: ghcr.io/beardedio/terraria
+
+    - name: Build and Push Images to docker hub
+      run: ./bin/03-build-images push
+      env:
+        CI_REGISTRY_IMAGE: beardedio/terraria
 
     - name: Docker Hub Description
       uses: peter-evans/dockerhub-description@v3

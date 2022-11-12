@@ -10,9 +10,6 @@ RUN apt-get update && \
 # fix for favorites.json error
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
-# Download and install Vanilla Server
-# ENV VANILLA_VERSION=1423
-
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
     curl -sL https://www.terraria.org/api/download/pc-dedicated-server/terraria-server-1423.zip --output terraria-server.zip && \
@@ -25,10 +22,14 @@ RUN mkdir /tmp/terraria && \
 
 COPY run-vanilla.sh /vanilla/run.sh
 
-# Commit Hash Metadata
+# Metadata
 ARG VCS_REF
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/beardedio/terraria"
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vcs-url="https://github.com/beardedio/terraria"
+LABEL org.opencontainers.image.source=https://github.com/beardedio/terraria
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.description="Vanilla Terraria Server - Version 1423"
+LABEL VANILLA_VERSION=1423
 
 # Allow for external data
 VOLUME ["/config"]

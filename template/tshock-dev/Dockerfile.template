@@ -16,10 +16,6 @@ RUN mkdir /config /tshock && \
 # fix for favorites.json error
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
-# Download and install TShock-Dev Server
-# Build Num: %%BUILD_NUMBER%%
-# Build URL: %%BUILD_URL%%
-
 RUN cd /tmp && \
     curl -sL %%DOWNLOAD_URL%% --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
@@ -31,10 +27,14 @@ RUN cd /tmp && \
 
 COPY run-tshock.sh /tshock/run.sh
 
-# Commit Hash Metadata
+# Metadata
 ARG VCS_REF
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/beardedio/terraria"
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vcs-url="https://github.com/beardedio/terraria"
+LABEL org.opencontainers.image.source=https://github.com/beardedio/terraria
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.description="Tshock Dev Build Terraria Server - Build Num %%BUILD_NUMBER%%"
+LABEL BUILD_NUM=%%BUILD_NUMBER%%
 
 # Allow for external data
 VOLUME ["/config", "/tshock/ServerPlugins"]

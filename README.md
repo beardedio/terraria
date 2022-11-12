@@ -12,10 +12,10 @@ docker create --rm -it \
   -v <path to data>:/config \
   -e world=<world_file_name> \
   -p 7777:7777 \
-  beardedio/terraria
+  ghcr.io/beardedio/terraria:latest
 ```
 
-Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
+Docker Images are avaiable on [ghcr.io](https://github.com/beardedio/terraria/pkgs/container/terraria) and [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
 
 ### Supported tags and respective `Dockerfile` links
 * vanilla-1.4.4.8.1, vanilla-latest, latest [(containers/vanilla/1.4.4.8.1/Dockerfile)](https://github.com/beardedio/terraria/blob/master/containers/vanilla/1.4.4.8.1/Dockerfile)
@@ -34,7 +34,7 @@ The [TShock Discussions](https://github.com/Pryaxis/TShock/discussions) or the [
 https://github.com/beardedio/terraria/issues
 
 - Maintained by:\
-[Brandon Skrtich of Bearded.io](https://www.bearded.io/#footer)
+[Henry Skrtich of Bearded.io](https://www.bearded.io/#footer)
 
 - Supported Docker versions:\
 [We support the latest release](https://github.com/docker/docker-ce/releases/latest) (down to 1.8 on a best-effort basis)
@@ -50,7 +50,7 @@ To run with out user intervention Terraria Server needs to be configure to use a
 sudo docker run --rm -it -p 7777:7777 \
     -v $HOME/terraria/config:/config \
     --name=terraria \
-    beardedio/terraria
+    ghcr.io/beardedio/terraria:latest
 ```
 You can then follow the prompts to create a new world.
 
@@ -63,7 +63,7 @@ sudo docker run --rm -dit \
   -v $HOME/terraria/config:/config \
   -e world=<world_file_name> \
   -p 7777:7777 \
-  beardedio/terraria
+  ghcr.io/beardedio/terraria:latest
 ```
 
 If you get an error from docker saying the container name already exists, it means you need to remove your old docker container process.
@@ -80,7 +80,7 @@ version: '3'
 
 services:
   terraria:
-    image: beardedio/terraria:vanilla-latest
+    image: ghcr.io/beardedio/terraria:latest
     ports:
       - '7777:7777'
     restart: unless-stopped
@@ -119,4 +119,4 @@ The server requires a tty connection, so when starting the server via docker run
 #### License
 
 The MIT License (MIT)
-Copyright (c) 2022 Brandon Skrtich
+Copyright (c) 2022 Henry Skrtich
