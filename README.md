@@ -120,4 +120,4 @@ The server requires a tty connection, so when starting the server via docker run
 #### License
 
 The MIT License (MIT)
-Copyright (c) 2022 Henry Skrtich
+Copyright (c) 2023 Henry Skrtich
