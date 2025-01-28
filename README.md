@@ -63,7 +63,7 @@ To start a server using an already generated world, use this command:
 sudo docker run --rm -dit \
   --name=terraria \
   -v $HOME/terraria/config:/config \
-  -e world=<world_file_name> \
+  -e world=<world_file_name>.wld \
   -p 7777:7777 \
   ghcr.io/beardedio/terraria:latest
 ```
@@ -87,7 +87,7 @@ services:
       - '7777:7777'
     restart: unless-stopped
     environment:
-      - world=<world_file_name>
+      - world=<world_file_name>.wld
     volumes:
       - $HOME/terraria/config:/config
     tty: true
