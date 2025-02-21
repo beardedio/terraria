@@ -1,0 +1,126 @@
+#   ╔═╗╔╦╗╦╔╦╗╔═╗╦═╗┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+#   ║╣  ║║║ ║ ║ ║╠╦╝│  │ ││││├┤ ││ ┬
+#  o╚═╝═╩╝╩ ╩ ╚═╝╩╚═└─┘└─┘┘└┘└  ┴└─┘
+#
+# This file exists to help maintain consistent formatting
+# throughout this project.
+#
+# These rules ONLY apply to files that will be edited by an actual editor,
+# NOT to auto-generated files (i.e., *.lock files, etc.).
+#
+# Additionally, these rules ONLY apply to:
+# a) new files, or
+# b) your changes to existing files
+#
+# They will NOT automatically be applied to existing lines in a file
+# (i.e., not all whitespace will be automatically removed from existing lines
+# in a file). This is the job of CI and other various tools.
+# This file just ensures that, when your editor makes changes to a file, those
+# changes follow these rules.
+#
+# For an overview of each rule and its intended use and effect, see:
+# http://editorconfig.org
+
+# This is the top-most EditorConfig file
+root = true
+
+# -----------------------------------------------------------------------------
+# ALL FILES
+[*]
+
+# Use UTF-8 character encoding
+charset = utf-8
+
+# Use Unix-style newlines (aka. line endings)
+end_of_line = lf
+
+# Indent files using 4 spaces by default
+indent_style = space
+indent_size = 4
+
+# Always insert a blank line at the end of files in order to be POSIX-compliant
+# https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206
+insert_final_newline = true
+
+# Show guide at recommended maximum line length
+# (does NOT actually enforce, just shows a visual guide)
+max_line_length = 120
+
+# Trim whitespace from the end of lines
+trim_trailing_whitespace = true
+
+# -----------------------------------------------------------------------------
+# FILE-TYPE-SPECIFIC SETTINGS
+#
+# List main file type extension first and
+# subsequent file type extensions alphabetically
+# (i.e., [*.{rb,erb,ru}] for Ruby and Ruby-related files)
+
+[COMMIT_EDITMSG]
+# Show indicator for max line length for git commit messages
+# (does NOT actually enforce, just shows a visual guide)
+max_line_length = 72
+
+[*.{ts,tsx,js,jsx,ejs,mjs,cjs}]
+# Typescript/Javascript code files
+indent_style = space
+indent_size = 2
+
+# To make Prettier happy - https://prettier.io/
+max_line_length = 80
+
+[*.hbs]
+# Handlebar.js file
+insert_final_newline = false
+indent_style = space
+indent_size = 2
+
+[*.{html,css,scss}]
+# HTML script files
+indent_style = space
+indent_size = 2
+
+[*.py]
+# Python files
+indent_style = space
+indent_size = 4
+
+[*.{json,json5,releaserc}]
+# JSON files
+indent_style = space
+indent_size = 2
+
+[Makefile]
+# Makefiles need tabs in order to work properly
+indent_style = tab
+indent_size = 4
+
+[*.{md,markdown}]
+# To create a line break (<br/>) in markdown, end a line with two or more spaces
+# and then type return; thus, don't trim whitespace from the end of lines in
+# markdown files
+trim_trailing_whitespace = false
+
+[*.mk]
+# Makefiles need tabs in order to work properly
+indent_style = tab
+indent_size = 4
+
+[package.json]
+indent_style = space
+indent_size = 2
+
+[*.{yml,toml,yaml,tpl}]
+indent_style = space
+indent_size = 2
+
+[*.{tf,tfvars}]
+# Terraform Files
+indent_style = space
+indent_size = 2
+
+[*.{diff,patch}]
+# Ignore diffs/patches
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
