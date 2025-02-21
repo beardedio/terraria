@@ -69,7 +69,7 @@ for filepath in sorted(glob.iglob(repodir+'/containers/*/[!latest]*'), reverse=T
         if latest_folder == folder:
             tags += ", latest"
 
-    tags += " [(containers/"+folder+"/"+version+"/Dockerfile)](https://github.com/"+slug+"/blob/master/containers/"+folder+"/"+version+"/Dockerfile)"
+    tags += " [(containers/"+folder+"/"+version+"/Dockerfile)](https://github.com/"+slug+"/blob/main/containers/"+folder+"/"+version+"/Dockerfile)"
     tags += "\n"
 tags = tags.strip()
 
