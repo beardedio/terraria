@@ -18,10 +18,7 @@ docker create --rm -it \
 Docker Images are avaiable on [ghcr.io](https://github.com/beardedio/terraria/pkgs/container/terraria) and [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
 
 ### Supported tags and respective `Dockerfile` links
-* vanilla-1.4.4.9, vanilla-latest, latest [(containers/vanilla/1.4.4.9/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.4.9/Dockerfile)
-* vanilla-1.4.3.6 [(containers/vanilla/1.4.3.6/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.3.6/Dockerfile)
-* vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.2.3/Dockerfile)
-* vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.1.2/Dockerfile)
+* vanilla-1.4.5.0, vanilla-latest, latest [(containers/vanilla/1.4.5.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.5.0/Dockerfile)
 * tshock-5.2.4, tshock-latest [(containers/tshock/5.2.4/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.4/Dockerfile)
 * tshock-5.2.3 [(containers/tshock/5.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.3/Dockerfile)
 * tshock-5.2.2 [(containers/tshock/5.2.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.2/Dockerfile)
@@ -121,4 +118,4 @@ The server requires a tty connection, so when starting the server via docker run
 #### License
 
 The MIT License (MIT)
-Copyright (c) 2025 Henry Skrtich
+Copyright (c) 2026 Henry Skrtich

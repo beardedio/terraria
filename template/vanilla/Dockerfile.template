@@ -1,4 +1,4 @@
-FROM mono:slim
+FROM mcr.microsoft.com/dotnet/runtime:9.0
 
 # Update and install needed utils
 RUN apt-get update && \
@@ -24,10 +24,9 @@ COPY run-vanilla.sh /vanilla/run.sh
 
 # Metadata
 ARG VCS_REF
-LABEL org.label-schema.vcs-ref=$VCS_REF
-LABEL org.label-schema.vcs-url="https://github.com/beardedio/terraria"
-LABEL org.opencontainers.image.source=https://github.com/beardedio/terraria
-LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.revision=$VCS_REF
+LABEL org.opencontainers.image.source="https://github.com/beardedio/terraria"
+LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.description="Vanilla Terraria Server - Version %%VERSION%%"
 LABEL VANILLA_VERSION=%%VERSION%%
 
