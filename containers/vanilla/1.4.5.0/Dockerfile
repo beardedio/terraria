@@ -1,9 +1,9 @@
-FROM mono:slim
+FROM ubuntu:24.04
 
 # Update and install needed utils
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl nuget vim zip && \
+    apt-get install -y curl vim zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
