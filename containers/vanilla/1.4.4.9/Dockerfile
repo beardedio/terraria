@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime:9.0
+FROM debian:trixie-slim
 
 # Update and install needed utils
 RUN apt-get update && \

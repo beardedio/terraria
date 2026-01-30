@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime:9.0
+FROM debian:trixie-slim
 
 # Update and install needed utils
 RUN apt-get update && \
@@ -12,7 +12,7 @@ RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && ec
 
 RUN mkdir /tmp/terraria && \
     cd /tmp/terraria && \
-    curl -sL https://www.terraria.org/api/download/pc-dedicated-server/terraria-server-1451.zip --output terraria-server.zip && \
+    curl -sL https://www.terraria.org/api/download/pc-dedicated-server/terraria-server-1452.zip --output terraria-server.zip && \
     unzip -q terraria-server.zip && \
     mv */Linux /vanilla && \
     mv */Windows/serverconfig.txt /vanilla/serverconfig-default.txt && \
@@ -27,8 +27,8 @@ ARG VCS_REF
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.source="https://github.com/beardedio/terraria"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.description="Vanilla Terraria Server - Version 1451"
-LABEL VANILLA_VERSION=1451
+LABEL org.opencontainers.image.description="Vanilla Terraria Server - Version 1452"
+LABEL VANILLA_VERSION=1452
 
 # Allow for external data
 VOLUME ["/config"]
