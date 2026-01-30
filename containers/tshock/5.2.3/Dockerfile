@@ -1,11 +1,17 @@
-FROM mcr.microsoft.com/dotnet/runtime:9.0
+FROM debian:trixie-slim
 
 # Update and install needed utils
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl nuget vim zip && \
+    apt-get install -y curl vim zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN cd /tmp && \
+    curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh && \
+    chmod +x ./dotnet-install.sh && \
+    ./dotnet-install.sh --channel 6.0 && \
+    rm -R /tmp/*
 
 # Create symbolic link to ServerLog.txt
 RUN mkdir /config /tshock && \
