@@ -23,11 +23,13 @@ Docker Images are avaiable on [ghcr.io](https://github.com/beardedio/terraria/pk
 * vanilla-1.4.3.6 [(containers/vanilla/1.4.3.6/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.3.6/Dockerfile)
 * vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.2.3/Dockerfile)
 * vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.1.2/Dockerfile)
-* tshock-5.2.4, tshock-latest [(containers/tshock/5.2.4/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.4/Dockerfile)
+* tshock-6.1.0, tshock-latest [(containers/tshock/6.1.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.1.0/Dockerfile)
+* tshock-6.0.0 [(containers/tshock/6.0.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.0.0/Dockerfile)
+* tshock-5.2.4 [(containers/tshock/5.2.4/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.4/Dockerfile)
 * tshock-5.2.3 [(containers/tshock/5.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.3/Dockerfile)
 * tshock-5.2.2 [(containers/tshock/5.2.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.2/Dockerfile)
-* tshock-5.2.1 [(containers/tshock/5.2.1/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.1/Dockerfile)
-* tshock-5.2.0 [(containers/tshock/5.2.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.0/Dockerfile)
+* tshock-dev-5653, tshock-dev-latest [(containers/tshock-dev/5653/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock-dev/5653/Dockerfile)
+* tshock-dev-5650 [(containers/tshock-dev/5650/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock-dev/5650/Dockerfile)
 
 ### Quick reference
 - Where to get help:\

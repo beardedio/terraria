@@ -3,17 +3,9 @@ FROM debian:trixie-slim
 # Update and install needed utils
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl vim zip libicu76 && \
+    apt-get install -y curl vim zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-ENV DOTNET_ROOT=/root/.dotnet
-
-RUN cd /tmp && \
-    curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh && \
-    chmod +x ./dotnet-install.sh && \
-    ./dotnet-install.sh --channel 6.0 && \
-    rm -R /tmp/*
 
 # Create symbolic link to ServerLog.txt
 RUN mkdir /config /tshock && \
@@ -25,13 +17,13 @@ RUN mkdir /config /tshock && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 RUN cd /tmp && \
-    curl -sL https://github.com/Pryaxis/TShock/releases/download/v5.2.1/TShock-5.2.1-for-Terraria-1.4.4.9-linux-amd64-Release.zip --output tshock_release.zip && \
+    curl -sL https://ci.appveyor.com/api/buildjobs/y3holw18y9siwd0i/artifacts/TShockAPI%2Fbin%2FTShockAVRelease.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
-    mkdir ./untar && tar -xf *.tar -C ./untar && \
-    cd $(find . -type f -name TShock.Server -printf '%h\n') && \
+    cd $(find . -name TerrariaServer.exe -printf '%h\n') && \
     mv ./* /tshock/ && \
-    rm -R /tmp/*
+    rm -R /tmp/* && \
+    chmod +x /tshock/TerrariaServer.exe
 
 COPY run-tshock.sh /tshock/run.sh
 
@@ -40,8 +32,8 @@ ARG VCS_REF
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.source="https://github.com/beardedio/terraria"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.description="Tshock Terraria Server - Version 5.2.1"
-LABEL TSHOCK_VERSION=5.2.1
+LABEL org.opencontainers.image.description="Tshock Dev Build Terraria Server - Build Num 5650"
+LABEL BUILD_NUM=5650
 
 # Allow for external data
 VOLUME ["/config", "/tshock/ServerPlugins"]

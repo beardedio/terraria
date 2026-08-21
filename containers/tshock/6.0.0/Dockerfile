@@ -25,7 +25,7 @@ RUN mkdir /config /tshock && \
 RUN favorites_path="/root/My Games/Terraria" && mkdir -p "$favorites_path" && echo "{}" > "$favorites_path/favorites.json"
 
 RUN cd /tmp && \
-    curl -sL https://github.com/Pryaxis/TShock/releases/download/v5.2.0/TShock-5.2-for-Terraria-1.4.4.9-linux-x64-Release.zip --output tshock_release.zip && \
+    curl -sL https://github.com/Pryaxis/TShock/releases/download/v6.0.0/TShock-6.0.0-for-Terraria-1.4.5.5-linux-x64-Release.zip --output tshock_release.zip && \
     unzip tshock_release.zip -d /tmp/tshock && \
     cd /tmp/tshock && \
     mkdir ./untar && tar -xf *.tar -C ./untar && \
@@ -40,8 +40,8 @@ ARG VCS_REF
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.source="https://github.com/beardedio/terraria"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.description="Tshock Terraria Server - Version 5.2.0"
-LABEL TSHOCK_VERSION=5.2.0
+LABEL org.opencontainers.image.description="Tshock Terraria Server - Version 6.0.0"
+LABEL TSHOCK_VERSION=6.0.0
 
 # Allow for external data
 VOLUME ["/config", "/tshock/ServerPlugins"]
