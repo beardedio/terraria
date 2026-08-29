@@ -16,7 +16,7 @@ import sys, os, glob, datetime, urllib
 repo = "terraria"
 
 # Repository Slug
-slug = "beardedio/terraria"
+slug = "dethanc/terraria"
 
 # The folder that is tagged "latest"
 latest_folder = "vanilla"

@@ -38,7 +38,7 @@ COPY run-tshock.sh /tshock/run.sh
 # Metadata
 ARG VCS_REF
 LABEL org.opencontainers.image.revision=$VCS_REF
-LABEL org.opencontainers.image.source="https://github.com/beardedio/terraria"
+LABEL org.opencontainers.image.source="https://github.com/dethanc/terraria"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.description="Tshock Terraria Server - Version 6.1.0"
 LABEL TSHOCK_VERSION=6.1.0

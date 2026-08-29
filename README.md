@@ -3,7 +3,7 @@
 Docker images to run a Terraria Server. Images with [TShock Server](https://github.com/Pryaxis/TShock) or [Vanilla Server](https://terraria.gamepedia.com/Server) are available.
 
 
-[![Auto Build](https://github.com/beardedio/terraria/actions/workflows/main.yml/badge.svg)](https://github.com/beardedio/terraria/actions/workflows/main.yml) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardedio/terraria/latest) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedio/terraria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedio/terraria.svg)]()
+[![Auto Build](https://github.com/dethanc/terraria/actions/workflows/main.yml/badge.svg)](https://github.com/bedethancerraria/actions/workflows/main.yml) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/beardethancraria/latest) [![Docker Pulls](https://img.shields.io/docker/pulls/beardedethancria.svg)]() [![Docker Stars](https://img.shields.io/docker/stars/beardedidethanca.svg)]()
 
 ### Usage
 ```
@@ -12,29 +12,29 @@ docker create --rm -it \
   -v <path to data>:/config \
   -e world=<world_file_name> \
   -p 7777:7777 \
-  ghcr.io/beardedio/terraria:latest
+  ghcr.io/dethanc/terraria:latest
 ```
 
-Docker Images are avaiable on [ghcr.io](https://github.com/beardedio/terraria/pkgs/container/terraria) and [Docker Hub](https://hub.docker.com/r/beardedio/terraria)
+Docker Images are avaiable on [ghcr.io](https://github.com/dethanc/terraria/pkgs/container/terraria) and [Docker Hub](https://hub.docker.com/r/bedethancerraria)
 
 ### Supported tags and respective `Dockerfile` links
-* vanilla-1.4.5.7, vanilla-latest, latest [(containers/vanilla/1.4.5.7/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.5.7/Dockerfile)
-* vanilla-1.4.4.9 [(containers/vanilla/1.4.4.9/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.4.9/Dockerfile)
-* vanilla-1.4.3.6 [(containers/vanilla/1.4.3.6/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.3.6/Dockerfile)
-* vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.2.3/Dockerfile)
-* vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.1.2/Dockerfile)
-* tshock-6.1.0, tshock-latest [(containers/tshock/6.1.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.1.0/Dockerfile)
-* tshock-6.0.0 [(containers/tshock/6.0.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.0.0/Dockerfile)
-* tshock-5.2.4 [(containers/tshock/5.2.4/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.4/Dockerfile)
-* tshock-5.2.3 [(containers/tshock/5.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.3/Dockerfile)
-* tshock-5.2.2 [(containers/tshock/5.2.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/5.2.2/Dockerfile)
+* vanilla-1.4.5.8, vanilla-latest, latest [(containers/vanilla/1.4.5.8/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/vanilla/1.4.5.8/Dockerfile)
+* vanilla-1.4.4.9 [(containers/vanilla/1.4.4.9/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/vanilla/1.4.4.9/Dockerfile)
+* vanilla-1.4.3.6 [(containers/vanilla/1.4.3.6/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/vanilla/1.4.3.6/Dockerfile)
+* vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/vanilla/1.4.2.3/Dockerfile)
+* vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/vanilla/1.4.1.2/Dockerfile)
+* tshock-6.1.0, tshock-latest [(containers/tshock/6.1.0/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/tshock/6.1.0/Dockerfile)
+* tshock-6.0.0 [(containers/tshock/6.0.0/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/tshock/6.0.0/Dockerfile)
+* tshock-5.2.4 [(containers/tshock/5.2.4/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/tshock/5.2.4/Dockerfile)
+* tshock-5.2.3 [(containers/tshock/5.2.3/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/tshock/5.2.3/Dockerfile)
+* tshock-5.2.2 [(containers/tshock/5.2.2/Dockerfile)](https://github.com/dethanc/terraria/blob/main/containers/tshock/5.2.2/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
 The [TShock Discussions](https://github.com/Pryaxis/TShock/discussions) or the [Terraria Forum](https://forums.terraria.org/index.php?forums/)
 
 - Where to file issues:\
-https://github.com/beardedio/terraria/issues
+https://github.com/dethanc/terraria/issues
 
 - Maintained by:\
 [Henry Skrtich of Bearded.io](https://www.bearded.io/#footer)
@@ -53,7 +53,7 @@ To run with out user intervention Terraria Server needs to be configure to use a
 sudo docker run --rm -it -p 7777:7777 \
     -v $HOME/terraria/config:/config \
     --name=terraria \
-    ghcr.io/beardedio/terraria:latest
+    ghcr.io/dethanc/terraria:latest
 ```
 You can then follow the prompts to create a new world.
 
@@ -66,7 +66,7 @@ sudo docker run --rm -dit \
   -v $HOME/terraria/config:/config \
   -e world=<world_file_name>.wld \
   -p 7777:7777 \
-  ghcr.io/beardedio/terraria:latest
+  ghcr.io/dethanc/terraria:latest
 ```
 
 If you get an error from docker saying the container name already exists, it means you need to remove your old docker container process.
@@ -83,7 +83,7 @@ version: '3'
 
 services:
   terraria:
-    image: ghcr.io/beardedio/terraria:latest
+    image: ghcr.io/dethanc/terraria:latest
     ports:
       - '7777:7777'
     restart: unless-stopped
@@ -95,13 +95,13 @@ services:
     stdin_open: true
 ```
 
-### beardedio/terraria:tshock-latest
+### dethanc/terraria:tshock-latest
 TShock is a server modification for Terraria, written in C#, and based upon the Terraria Server API. It uses JSON for configuration management, and offers several features not present in the Terraria Server normally.
 
-### beardedio/terraria:tshock-dev-latest
+### dethanc/terraria:tshock-dev-latest
 TShock dev are unreleased development builds of TShock. These builds may be unstable but they are updated faster then the released versions so they support new versions of Terraria faster.
 
-### beardedio/terraria:vanilla-latest
+### dethanc/terraria:vanilla-latest
 Vanilla Terraria server is the server software provided by the developers of Terraria. This version has only basic features but it is updated along with the main game so it should always be up to date.
 
 If a docker image isn't available of the latest versions please [contact us](https://www.bearded.io/#footer) about the new release so we can update this repo.
@@ -112,7 +112,7 @@ Yes, if you want manage you own plugins for tshock containers, you can add a vol
 - I started the container but it keeps asking me to select a world, help?!\
 You need to ether start the server with an existing world, in which case the server will start automaticly. Or you need to run the continer interactivly using the -it flag. This will allow you to create a new world.
 -The server returns a "System.NullReferenceException" exception when loading a world. Help!\
-The server requires a tty connection, so when starting the server via docker run make sure to include the -it flag. Or if running using docker-compose make sure to add tty: true (see this [issue](https://github.com/beardedio/terraria/issues/7))
+The server requires a tty connection, so when starting the server via docker run make sure to include the -it flag. Or if running using docker-compose make sure to add tty: true (see this [issue](https://github.com/dethanc/terraria/issues/7))
 
 #### *Notes*
 * Please check the [TShock instructions](https://tshock.readme.io/docs/getting-started) for properly installing and configuring your terraria server.
