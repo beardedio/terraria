@@ -12,7 +12,7 @@ ENV DOTNET_ROOT=/root/.dotnet
 RUN cd /tmp && \
     curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh && \
     chmod +x ./dotnet-install.sh && \
-    ./dotnet-install.sh --channel 6.0 && \
+    ./dotnet-install.sh --channel 9.0 && \
     rm -R /tmp/*
 
 # Create symbolic link to ServerLog.txt

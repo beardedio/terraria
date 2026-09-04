@@ -67,6 +67,10 @@ for item in data:
     if count == limit:
         break
 
+    # Stop at v5 versions
+    if item['tag_name'].startswith('v5'):
+        break
+
     if (gotprerelease and item['prerelease']) or item['draft']:
         continue
 
