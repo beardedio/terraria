@@ -23,7 +23,8 @@ Docker Images are avaiable on [ghcr.io](https://github.com/beardedio/terraria/pk
 * vanilla-1.4.3.6 [(containers/vanilla/1.4.3.6/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.3.6/Dockerfile)
 * vanilla-1.4.2.3 [(containers/vanilla/1.4.2.3/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.2.3/Dockerfile)
 * vanilla-1.4.1.2 [(containers/vanilla/1.4.1.2/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/vanilla/1.4.1.2/Dockerfile)
-* tshock-6.1.0, tshock-latest [(containers/tshock/6.1.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.1.0/Dockerfile)
+* tshock-6.2.1, tshock-latest [(containers/tshock/6.2.1/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.2.1/Dockerfile)
+* tshock-6.1.0 [(containers/tshock/6.1.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.1.0/Dockerfile)
 * tshock-6.0.0 [(containers/tshock/6.0.0/Dockerfile)](https://github.com/beardedio/terraria/blob/main/containers/tshock/6.0.0/Dockerfile)
 
 ### Quick reference
