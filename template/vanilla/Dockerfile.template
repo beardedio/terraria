@@ -1,4 +1,9 @@
+FROM debian:bullseye-slim AS openssl11
+
 FROM debian:trixie-slim
+
+# Copy OpenSSL 1.1 libraries required by libGNS_Wrapper.so
+COPY --from=openssl11 /usr/lib/x86_64-linux-gnu/libssl.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/
 
 # Update and install needed utils
 RUN apt-get update && \
